@@ -8,6 +8,46 @@
     <base href="../../">
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <style>
+        .container-card {
+            margin: 0 auto;
+            padding: 100px 20px 0px 20px;
+        }
+
+        #category-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            box-shadow: 1px 4px 16px rgba(0, 0, 0, 0.08);
+            border-radius: 0.5rem;
+        }
+
+        table td,
+        table th {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            border: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .card {
+            border-radius: .5rem;
+        }
+
+        thead th {
+            top: 0;
+            position: sticky;
+            z-index: 2;
+        }
+
+        tfoot td {
+            position: sticky;
+            bottom: 0;
+            background: #f8f9fa;
+            z-index: 2;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,19 +62,81 @@
             <!--  Header Start -->
             <header id="header" class="app-header"></header>
             <!--  Header End -->
-            <div class="container-fluid">
-                
+            <div class="container-card body-wrapper-inner">
+                <div class="row">
+                    <h5 class="col-10 card-title fw-bolder fs-7 mb-4">Category</h5>
+                    <div class="col-2 d-flex justify-content-end align-items-center mb-4">
+                        <button class="btnAddCategory btn btn btn-primary">
+                            <i class="ti ti-plus"></i>
+                            <span class="ms-2">Add Category</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div id="category-table" class="table-responsive"
+                            style="position: relative; max-height: 700px;">
+                            <table class="table table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Name</th>
+                                        <th style="padding-left: 24px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="category-table-body">
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <nav aria-label="pagination">
+                                                <ul class="pagination justify-content-center m-0">
+
+                                                </ul>
+                                            </nav>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="addCategoryForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addCategoryModalLabel">Add New Category</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">Category Name</label>
+                            <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/admin/app.min.js"></script>
     <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="assets/js/admin/scripts.js"></script>
-    <script>
-    </script>
+    <script src="assets/js/admin/category.js"></script>
     <!-- solar icons -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>

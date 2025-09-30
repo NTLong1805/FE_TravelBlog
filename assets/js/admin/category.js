@@ -13,12 +13,12 @@ $(document).ready(function () {
   fetchCategories();
 });
 
-document.querySelector('.btnAddCategory').addEventListener('click', function () {
+$(document).on('click', '.btnAddCategory', function () {
   var addCategoryModal = new bootstrap.Modal(document.getElementById('addCategoryModal'));
   addCategoryModal.show();
 });
 
-document.getElementById('addCategoryForm').addEventListener('submit', function (e) {
+$(document).on('submit', '#addCategoryForm', function (e) {
   e.preventDefault();
 
   const name = document.getElementById('categoryName').value;
@@ -30,11 +30,11 @@ document.getElementById('addCategoryForm').addEventListener('submit', function (
 });
 
 $(document).on('click', '.btnEditCategory.btn.btn-sm.btn-link.text-primary', function () {
-    const rowIndex = $(this).closest('tr').index();
-    const category = allData[(currentPage - 1) * pageSize + rowIndex];
-    if (category && category.id) {
-        window.location.href = `page/admin/category-detail.html`;
-    }
+  const rowIndex = $(this).closest('tr').index();
+  const category = allData[(currentPage - 1) * pageSize + rowIndex];
+  if (category && category.id) {
+    window.location.href = `page/admin/category-detail.html`;
+  }
 });
 
 function authentication() {

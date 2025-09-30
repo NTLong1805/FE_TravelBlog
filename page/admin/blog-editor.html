@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Travel Blogs - Admin</title>
+    <title>Blogs - Admin</title>
     <base href="../../">
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
@@ -12,6 +12,21 @@
         .container-card {
             margin: 0 auto;
             padding: 100px 20px 0px 20px;
+        }
+
+        .codex-editor .codex-editor__redactor {
+            padding-bottom: 0px !important;
+            min-height: 250px;
+        }
+
+        .ce-block__content {
+            max-width: 100% !important;
+            margin: 10px 65px 10px 20px;
+        }
+
+        .ce-toolbar {
+            left: auto !important;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -29,22 +44,48 @@
             <header id="header" class="app-header"></header>
             <!--  Header End -->
             <div class="container-card body-wrapper-inner">
-                <div class="row justify-content-between">
+                <div class="col-2">
+                    <button class="btnBack btn btn-lg">
+                        <i class="ti ti-arrow-narrow-left"></i>
+                        <span class="ms-2">Back</span>
+                    </button>
+                </div>
+                <div class="card"></div>
+                <div class="row">
                     <div class="col-2">
-                        <button class="btnBack btn btn-lg">
-                            <i class="ti ti-arrow-narrow-left"></i>
-                            <span class="ms-2">Back</span>
-                        </button>
-                    </div>
-                    <div class="col-2 d-flex justify-content-end align-items-center mb-4">
-                        <button class="btnSave btn btn btn-primary">
-                            Save
-                        </button>
+                        <h3>Post Blog</h3>
                     </div>
                 </div>
+                <br>
+                <p>Thumbnail</p>
+                <div class="thumbnail mb-4">
+                    <div id="preview" class="mb-4">
+                        <img id="preview-img" src="" alt="Preview"
+                            style="max-width:450px; display:none; border-radius:8px;" />
+                    </div>
+
+                    <label for="file-input" class="btn btn-primary">
+                        <i class="ti ti-upload"></i>
+                        <span class="ms-2">Upload</span>
+                    </label>
+                    <input id="file-input" accept="image/*" type="file" style="display: none;">
+                </div>
+                <p>Title</p>
                 <div class="card">
                     <div class="card-body p-0">
-                        
+                        <input type="text" placeholder="Enter blog's title"
+                            style="width: 100%; border: 0px; border-radius: 5px; padding: 10px; margin-left: 10px;">
+                    </div>
+                </div>
+                <p>Content</p>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div id="editorjs"></div>
+                        <div class="d-flex justify-content-end align-items-center mb-4 me-4">
+                            <button class="btnSave btn btn btn-primary">
+                                Save
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,10 +97,14 @@
     <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="assets/js/admin/scripts.js"></script>
-    <script>
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/raw@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
     <!-- solar icons -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="assets/js/admin/blog-editor.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blogs - Admin</title>
+    <base href="../../">
+    <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <style>
+        .container-card {
+            margin: 0 auto;
+            padding: 100px 20px 0px 20px;
+        }
+
+        #table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            box-shadow: 1px 4px 16px rgba(0, 0, 0, 0.08);
+            border-radius: 0.5rem;
+        }
+
+        table td,
+        table th {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            border: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .card {
+            border-radius: .5rem;
+        }
+
+        thead th {
+            top: 0;
+            position: sticky;
+            z-index: 2;
+        }
+
+        tfoot td {
+            position: sticky;
+            bottom: 0;
+            background: #f8f9fa;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <aside id="sidebar" class="left-sidebar"></aside>
+        <!--  Sidebar End -->
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            <header id="header" class="app-header"></header>
+            <!--  Header End -->
+            <div class="container-card body-wrapper-inner">
+                <div class="row">
+                    <h5 class="col-10 card-title fw-bolder fs-7 mb-4">Blogs</h5>
+                    <div class="col-2 d-flex justify-content-end align-items-center mb-4">
+                        <button class="btnPostBlog btn btn btn-primary">
+                            <i class="ti ti-plus"></i>
+                            <span class="ms-2">Post Blog</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div id="table" class="table-responsive"
+                            style="position: relative; max-height: 700px;">
+                            <table class="table table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Title</th>
+                                        <th>Article</th>
+                                        <th style="padding-left: 24px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="blog-table-body">
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <nav aria-label="pagination">
+                                                <ul class="pagination justify-content-center m-0">
+
+                                                </ul>
+                                            </nav>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/admin/app.min.js"></script>
+    <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="assets/js/admin/scripts.js"></script>
+    <script src="assets/js/admin/blog.js"></script>
+    <script>
+    </script>
+    <!-- solar icons -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

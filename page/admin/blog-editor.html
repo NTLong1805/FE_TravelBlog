@@ -57,6 +57,14 @@
                     </div>
                 </div>
                 <br>
+                <p>Category</p>
+                <div class="category mb-4">
+                    <label for="categorySelect"></label>
+                    <select id="categorySelect" class="form-select">
+                        <option value="">-- Select Category --</option>
+                    </select>
+                </div>
+                <br>
                 <p>Thumbnail</p>
                 <div class="thumbnail mb-4">
                     <div id="preview" class="mb-4">
@@ -73,7 +81,7 @@
                 <p>Title</p>
                 <div class="card">
                     <div class="card-body p-0">
-                        <input type="text" placeholder="Enter blog's title"
+                        <input id="title-input" type="text" placeholder="Enter blog's title"
                             style="width: 100%; border: 0px; border-radius: 5px; padding: 10px; margin-left: 10px;">
                     </div>
                 </div>
@@ -82,7 +90,7 @@
                     <div class="card-body p-0">
                         <div id="editorjs"></div>
                         <div class="d-flex justify-content-end align-items-center mb-4 me-4">
-                            <button class="btnSave btn btn btn-primary">
+                            <button class="btnSave btn btn-primary">
                                 Save
                             </button>
                         </div>

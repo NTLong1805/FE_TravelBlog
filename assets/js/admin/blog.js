@@ -113,7 +113,7 @@ function renderTable(page) {
     $tbody.empty();
 
     if (blogs.length === 0) {
-        $tbody.html('<tr><td colspan="4" class="text-center py-3">Không có dữ liệu</td></tr>');
+        $tbody.html('<tr><td colspan="5" class="text-center py-3">Không có dữ liệu</td></tr>');
         return;
     }
 
@@ -127,6 +127,7 @@ function renderTable(page) {
         rows += `<tr>
                     <td>${start + idx + 1}</td>
                     <td>${escapeHtml(blog.title || "")}</td>
+                    <td>${escapeHtml(blog.categoryId || "")}</td>
                     <td>${escapeHtml(author || "")}</td>
                     <td>
                         <button class="btnEditBlog btn btn-sm btn-link text-primary" title="Edit"><i class="ti ti-edit"></i></button>

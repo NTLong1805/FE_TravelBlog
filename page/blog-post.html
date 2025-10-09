@@ -1,24 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="../favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+    <!-- Font Heading Syne  -->
+    <link rel="stylesheet" href="../assets/font/Syne/stylesheet.css" />
+    <!-- Font Manrope -->
+    <link rel="stylesheet" href="../assets/font/Manrope/stylesheet.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
-  <link rel="shortcut icon" href="../favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="../favicon/site.webmanifest" />
-  <!-- Font Heading Syne  -->
-  <link rel="stylesheet" href="../assets/font/Syne/stylesheet.css">
-  <!-- Font Manrope -->
-  <link rel="stylesheet" href="../assets/font/Manrope/stylesheet.css">
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="../assets/css/main.css">
-</head>
+  <body>
+    <div>
+      <header id="header" class="header"></header>
 
-<body></body>
+      <section class="blog-detail">
+        <div class="container">
+          <div class="back-button">
+            <button class="back-button__btn">
+              <i class="back-button__icon fa-solid fa-arrow-left"></i>
+              <span class="back-button__text">Back</span>
+            </button>
+          </div>
+          <br />
+          <div class="blog-detail__header">
+            <h1 class="blog-detail__title">
+              Everything you need to know to get around Sydney this year
+            </h1>
 
+            <div class="blog-detail__meta">
+              <div class="blog-detail__meta-item">
+                <span class="blog-detail__meta-value blog-detail__date"
+                  >Nov 02, 2022</span
+                >
+              </div>
+              <div class="blog-detail__meta-item">
+                <span class="blog-detail__meta-value blog-detail__time-read"
+                  >12 Minutes Read</span
+                >
+              </div>
+              <div class="blog-detail__meta-item">
+                <span class="blog-detail__meta-value blog-detail__destination"
+                  >Sydney</span
+                >
+              </div>
+            </div>
+
+            <div class="blog-detail__author">
+              <!-- <b>Author:</b>
+              <h6 class="blog-detail__author-value">Trent Alexander</h6> -->
+            </div>
+
+            <img
+              src="../assets/images/destination/Bali.jpg"
+              alt="Sydney"
+              class="blog-detail__thumbnail"
+            />
+          </div>
+          <br />
+          <div class="blog-detail__content container"></div>
+        </div>
+      </section>
+
+      <section class="blog-similar"></section>
+
+      <footer id="footer" class="footer"></footer>
+      <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+      <script src="../assets/js/blog-post.js"></script>
+      <script src="../assets/js/scripts.js"></script>
+      <script>
+        load("#header", "../template/header.html");
+        load("#footer", "../template/footer.html");
+      </script>
+    </div>
+  </body>
 </html>

@@ -2623,6 +2623,124 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
 }
 
+.blog-detail {
+  padding: 40px 0;
+  margin-top: 60px;
+  font: Manrope;
+  color: #222;
+}
+.blog-detail__header {
+  margin-bottom: 32px;
+}
+.blog-detail__title {
+  font-family: "Syne", sans-serif;
+  font-size: 6.2rem;
+  font-weight: 600;
+  margin: 16px 0;
+  text-align: center;
+}
+.blog-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 40px 0px 20px 0px;
+}
+.blog-detail__meta-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+}
+.blog-detail__meta-value {
+  color: #666;
+  font-weight: 500;
+}
+.blog-detail__author {
+  display: flex;
+  flex-direction: row;
+}
+.blog-detail__author b {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.blog-detail__author h6 {
+  margin-left: 5px;
+}
+.blog-detail__content {
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.blog-detail__content h2,
+.blog-detail__content h3 {
+  margin-top: 2rem;
+}
+.blog-detail__content > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+.blog-detail__content p {
+  margin-bottom: 1rem;
+}
+.blog-detail__content img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+.blog-detail__content figure {
+  text-align: center;
+  margin: 2rem 0;
+}
+.blog-detail__content figure figcaption {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+.blog-detail__thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.blog-detail__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+}
+.back-button__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.back-button__btn:hover {
+  color: var(--main-color);
+  transform: translateX(-3px);
+}
+.back-button__btn:hover .back-button__icon {
+  transform: translateX(-3px);
+}
+.back-button__icon {
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+.back-button__text {
+  font-size: 15px;
+}
+
 .pagenotfound {
   display: flex;
   justify-content: center;

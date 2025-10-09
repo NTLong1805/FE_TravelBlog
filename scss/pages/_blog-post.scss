@@ -1,0 +1,139 @@
+.blog-detail {
+  padding: 40px 0;
+  margin-top: 60px;
+  font: Manrope;
+  color: #222;
+
+  &__header {
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-family: "Syne", sans-serif;
+    font-size: 6.2rem;
+    font-weight: 600;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin: 40px 0px 20px 0px;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.2rem;
+    }
+
+    &-value {
+      color: #666;
+      font-weight: 500;
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: row;
+
+    b {
+      color: #222;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    h6 {
+      margin-left: 5px;
+    }
+  }
+
+  &__content {
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.6;
+
+    h2,
+    h3 {
+      margin-top: 2rem;
+    }
+
+    & > *:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    figure {
+      text-align: center;
+      margin: 2rem 0;
+
+      figcaption {
+        font-size: 0.85rem;
+        color: #777;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  &__thumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+      color: var(--main-color);
+      transform: translateX(-3px);
+
+      .back-button__icon {
+        transform: translateX(-3px);
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  &__text {
+    font-size: 15px;
+  }
+}

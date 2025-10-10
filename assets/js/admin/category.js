@@ -1,91 +1,75 @@
-const BASE_URL = "https://localhost:7109/" // for test
+import { callApi } from "../apiHelper.js";
+import { authentication } from "../credentials.js";
 
 var apiSearch = BASE_URL + "api/v1/admin/categories/search";
-var categoryApi = BASE_URL + "api/v1/admin/categories"
-var apiAuthentication = BASE_URL + "api/v1/token";
+var categoryApi = BASE_URL + "api/v1/admin/categories";
 
 let allData = [];
 var currentPage = 1;
 var pageSize = 10;
 
-$(document).ready(function () {
-  authentication();
-  fetchCategories();
+$(document).ready(async function () {
+  await authentication();
+  await fetchCategories();
 });
 
-$(document).on('click', '.btnAddCategory', function () {
-  var addCategoryModal = new bootstrap.Modal(document.getElementById('addCategoryModal'));
+$(document).on("click", ".btnAddCategory", function () {
+  var addCategoryModal = new bootstrap.Modal(
+    document.getElementById("addCategoryModal")
+  );
   addCategoryModal.show();
 });
 
-$(document).on('submit', '#addCategoryForm', function (e) {
+$(document).on("submit", "#addCategoryForm", function (e) {
   e.preventDefault();
 
-  const name = document.getElementById('categoryName').value;
+  const name = document.getElementById("categoryName").value;
 
   addNewCategory(name);
 
-  bootstrap.Modal.getInstance(document.getElementById('addCategoryModal')).hide();
-  document.getElementById('addCategoryForm').reset();
+  bootstrap.Modal.getInstance(
+    document.getElementById("addCategoryModal")
+  ).hide();
+  document.getElementById("addCategoryForm").reset();
 });
 
-$(document).on('click', '.btnEditCategory.btn.btn-sm.btn-link.text-primary', function () {
-  const rowIndex = $(this).closest('tr').index();
-  const category = allData[(currentPage - 1) * pageSize + rowIndex];
-  if (category && category.id) {
-    window.location.href = `page/admin/category-detail.html`;
-  }
-});
-
-function authentication() {
-  $.ajax({
-    url: apiAuthentication,
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify({
-      "email": "admin@hostname.com",
-      "password": "123qwe"
-    }),
-    success: function (res) {
-      var token = res.token;
-      localStorage.setItem("token", token);
+$(document).on(
+  "click",
+  ".btnEditCategory.btn.btn-sm.btn-link.text-primary",
+  function () {
+    const rowIndex = $(this).closest("tr").index();
+    const category = allData[(currentPage - 1) * pageSize + rowIndex];
+    if (category && category.id) {
+      window.location.href = `page/admin/category-detail.html`;
     }
-  })
-}
+  }
+);
 
-function fetchCategories() {
-  var token = localStorage.getItem("token");
+async function fetchCategories() {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await callApi({
+      url: apiSearch,
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify({
+        pageNumber: 0,
+        pageSize: pageSize,
+        orderBy: ["id"],
+        ignorePagination: true,
+      }),
+      token: token,
+    });
 
-  $.ajax({
-    url: apiSearch,
-    type: "POST",
-    contentType: "application/json; charset=utf-8",
-    data: JSON.stringify({
-      "pageNumber": 0,
-      "pageSize": pageSize,
-      "orderBy": [
-        "id"
-      ],
-      "ignorePagination": true
-    }),
-    headers: {
-      "Authorization": "Bearer " + token
-    },
-    xhrFields: {
-      witCredentials: true
-    },
-    success: function (response) {
-      var result = response.result;
-      allData = Array.isArray(result.data) ? result.data : [];
-      currentPage = 1;
-      updateTable();
-    },
-    error: function (xhr, status, error) {
-      console.error("Failed to fetch categories:", error);
-      allData = [];
-      updateTable();
-    },
-  });
+    var result = response.result;
+    allData = Array.isArray(result.data) ? result.data : [];
+    currentPage = 1;
+    updateTable();
+  } catch (err) {
+    console.error("Failed to fetch categories:", err);
+    allData = [];
+    updateTable();
+  }
 }
 
 function renderTable(page) {
@@ -93,7 +77,9 @@ function renderTable(page) {
   $tbody.empty();
 
   if (allData.length === 0) {
-    $tbody.html('<tr><td colspan="3" class="text-center py-3">Không có dữ liệu</td></tr>');
+    $tbody.html(
+      '<tr><td colspan="3" class="text-center py-3">Không có dữ liệu</td></tr>'
+    );
     return;
   }
 
@@ -141,7 +127,9 @@ function renderPagination() {
   }
 
   // Next button
-  $ul.append(`<li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
+  $ul.append(`<li class="page-item ${
+    currentPage === totalPages ? "disabled" : ""
+  }">
     <a class="page-link" href="#" data-page="next">Next</a>
   </li>`);
 
@@ -180,27 +168,17 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-function addNewCategory(name) {
+async function addNewCategory(name) {
   var token = localStorage.getItem("token");
-
-  $.ajax({
+  var response = await callApi({
     url: categoryApi,
     type: "POST",
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify({
-      "name": name
+      name: name,
     }),
-    headers: {
-      "Authorization": "Bearer " + token
-    },
-    xhrFields: {
-      witCredentials: true
-    },
-    success: function (response) {
-      fetchCategories();
-    },
-    error: function (xhr, status, error) {
-      alert("Failed to add category!");
-    },
+    token: token,
   });
+
+  fetchCategories();
 }

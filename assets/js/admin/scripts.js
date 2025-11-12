@@ -1,5 +1,20 @@
+checkAuthentication();
 loadTemplate("header", "../../template/admin/header.html");
 loadTemplate("sidebar", "../../template/admin/sidebar.html");
+
+$(document).on("click", '#logout', logout);
+
+function checkAuthentication() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = "../../page/admin/authentication-login.html";
+    }
+}
+
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = '../../page/admin/authentication-login.html';
+}
 
 function loadTemplate(selector, path) {
     fetch(path)

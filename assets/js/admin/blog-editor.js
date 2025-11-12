@@ -1,6 +1,6 @@
 import { callApi, uploadFileApi } from "../apiHelper.js";
-import { authentication } from "../credentials.js";
 
+const token = localStorage.getItem("token");
 var editor;
 var apiCategory = "api/v1/admin/categories/search";
 var blogApi = "api/v1/admin/blogs";
@@ -8,9 +8,9 @@ var countryApi = "api/v1/admin/countries/search";
 var destinationApi = "api/v1/admin/countries/{id}/destinations";
 var thumbnailId = "";
 
+
 $(document).ready(async function () {
   initEditor();
-  await authentication();
   await loadCategories();
   await loadCountries();
 
@@ -71,7 +71,6 @@ function initEditor() {
 }
 
 async function uploadFile(file) {
-  const token = localStorage.getItem("token");
   try {
     const response = await uploadFileApi(file, token);
     const result = response.result;
@@ -102,8 +101,6 @@ function saveBlog() {
   editor
     .save()
     .then(async (outputData) => {
-      const token = localStorage.getItem("token");
-
       const res = await callApi({
         url: blogApi,
         method: "POST",
@@ -126,7 +123,6 @@ function saveBlog() {
 }
 
 async function loadCountries() {
-  const token = localStorage.getItem("token");
   const res = await callApi({
     url: countryApi,
     method: "POST",
@@ -142,7 +138,6 @@ async function loadCountries() {
 }
 
 async function loadDestinationsByCountry(id) {
-  const token = localStorage.getItem("token");
   const url = destinationApi.replace("{id}", id);
   const res = await callApi({
     url: url,

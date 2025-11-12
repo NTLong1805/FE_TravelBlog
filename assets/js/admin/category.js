@@ -4,12 +4,12 @@ import { authentication } from "../credentials.js";
 var apiSearch = "api/v1/admin/categories/search";
 var categoryApi = "api/v1/admin/categories";
 
+const token = localStorage.getItem("token");
 let allData = [];
 var currentPage = 1;
 var pageSize = 10;
 
 $(document).ready(async function () {
-  await authentication();
   await fetchCategories();
 });
 
@@ -46,7 +46,6 @@ $(document).on(
 );
 
 async function fetchCategories() {
-  const token = localStorage.getItem("token");
   try {
     const response = await callApi({
       url: apiSearch,
@@ -73,8 +72,6 @@ async function fetchCategories() {
 }
 
 async function getCategoryById(id) {
-  const token = localStorage.getItem("token");
-  
   try {
     const response = await callApi({
       url: categoryApi + "/" + id,
@@ -185,7 +182,6 @@ function escapeHtml(text) {
 }
 
 async function addNewCategory(name) {
-  var token = localStorage.getItem("token");
   var response = await callApi({
     url: categoryApi,
     type: "POST",

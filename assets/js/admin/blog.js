@@ -1,9 +1,9 @@
 import { callApi } from "../apiHelper.js";
-import { authentication } from "../credentials.js";
 
 var apiBlogSearch = "api/v1/admin/blogs/search";
 var apiUserSearch = "api/v1/admin/user/search";
 
+const token = localStorage.getItem("token");
 let blogs = [];
 let users = [];
 let userMap = {};
@@ -25,7 +25,6 @@ const StatusClass = {
 };
 
 $(document).ready(async function () {
-  await authentication();
   await fetchUsers();
   await fetchBlogs();
 });
@@ -35,8 +34,6 @@ $(document).on("click", ".btnPostBlog.btn.btn-primary", function () {
 });
 
 async function fetchUsers() {
-  const token = localStorage.getItem("token");
-
   try {
     const res = await callApi({
       url: apiUserSearch,
@@ -63,8 +60,6 @@ async function fetchUsers() {
 }
 
 async function fetchBlogs() {
-  const token = localStorage.getItem("token");
-
   try {
     const res = await callApi({
       url: apiBlogSearch,
@@ -105,8 +100,6 @@ function renderTable(page) {
   let rows = "";
   pageData.forEach((blog, idx) => {
     const author = userMap[blog.authorId] || "N/A";
-
-    const statusValue = 
 
     rows += `<tr>
                     <td>${start + idx + 1}</td>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,14 +19,20 @@
       href="./favicon/apple-touch-icon.png"
     />
     <link rel="manifest" href="./favicon/site.webmanifest" />
-    <!-- Font Heading Syne  -->
+
+    <!-- Fonts -->
     <link rel="stylesheet" href="./assets/font/Syne/stylesheet.css" />
-    <!-- Font Manrope -->
     <link rel="stylesheet" href="./assets/font/Manrope/stylesheet.css" />
-    <!-- Main CSS -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/styles.min.css" />
-    <!-- CDN Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -39,9 +45,69 @@
   <body>
     <header id="header" class="header"></header>
 
-    <div class="container" style="min-height: 100ch"></div>
+    <div class="container" style="margin-top: 100px; min-height: 500px">
+      <main class="page">
+        <section class="location-picker container">
+          <div class="location-picker__controls">
+            <input
+              id="locationInput"
+              class="location-picker__input"
+              type="text"
+              placeholder="Destination doesn't selected yet."
+              readonly
+            />
+            <button id="btnOpenMap" class="location-picker__button">
+              <i class="fa-solid fa-map-location-dot"></i> Search Destination
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
     <footer id="footer" class="footer"></footer>
+
+    <div id="mapModal" class="map-modal">
+      <div class="map-modal__content">
+        <h4 class="map-modal__title">Search Destinations On Maps</h4>
+
+        <input
+          id="searchBox"
+          type="text"
+          class="map-modal__search-input"
+          placeholder="Search destinations..."
+        />
+        <ul id="results" class="map-modal__results"></ul>
+
+        <div id="map" class="map-modal__map"></div>
+
+        <div class="map-modal__actions">
+          <button
+            id="btnLocate"
+            class="map-modal__button map-modal__button--locate"
+          >
+            <i class="fa-solid fa-location-crosshairs"></i> My location
+          </button>
+          <div class="map-modal__actions-right">
+            <button
+              id="btnSave"
+              class="map-modal__button map-modal__button--save"
+            >
+              <i class="fa-solid fa-check"></i> Save
+            </button>
+            <button
+              id="btnClose"
+              class="map-modal__button map-modal__button--close"
+            >
+              <i class="fa-solid fa-xmark"></i> Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="./assets/js/scripts.js"></script>
+    <script src="./assets/js/map-modal.js"></script>
     <script>
       load("#header", "../template/header.html");
       load("#footer", "../template/footer.html");

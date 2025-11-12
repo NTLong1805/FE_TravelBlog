@@ -34,6 +34,13 @@
 
     <!-- Font Awesome -->
     <!-- CDN Font Awesome -->
+    <link rel="stylesheet" href="./assets/css/styles.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -794,6 +801,49 @@
       </div>
     </section>
     <footer id="footer" class="footer"></footer>
+
+    <div id="mapModal" class="map-modal">
+      <div class="map-modal__content">
+        <h4 class="map-modal__title">Search Destinations On Maps</h4>
+
+        <input
+          id="searchBox"
+          type="text"
+          class="map-modal__search-input"
+          placeholder="Search destinations..."
+        />
+        <ul id="results" class="map-modal__results"></ul>
+
+        <div id="map" class="map-modal__map"></div>
+
+        <div class="map-modal__actions">
+          <button
+            id="btnLocate"
+            class="map-modal__button map-modal__button--locate"
+          >
+            <i class="fa-solid fa-location-crosshairs"></i> My location
+          </button>
+          <div class="map-modal__actions-right">
+            <button
+              id="btnSave"
+              class="map-modal__button map-modal__button--save"
+            >
+              <i class="fa-solid fa-check"></i> Save
+            </button>
+            <button
+              id="btnClose"
+              class="map-modal__button map-modal__button--close"
+            >
+              <i class="fa-solid fa-xmark"></i> Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+    <script src="./assets/js/map-modal.js"></script>
     <script>
       load("#footer", "../template/footer.html");
     </script>

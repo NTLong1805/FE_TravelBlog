@@ -2954,6 +2954,101 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
 }
 
+.blog-comments {
+  margin-top: 40px;
+  padding: 20px 0;
+}
+.blog-comments__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: "Manrope", sans-serif;
+}
+.blog-comments__login-required {
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.blog-comments__login-required p {
+  margin: 0 0 12px 0;
+  color: #555;
+  font-size: 15px;
+}
+.blog-comments__login-required .btn-login-comment {
+  background: #0a66c2;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.blog-comments__login-required .btn-login-comment:hover {
+  background: #004a9f;
+}
+.blog-comments__form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.blog-comments__form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 90px;
+  font-size: 15px;
+  font-family: "Manrope", sans-serif;
+  transition: border-color 0.2s;
+}
+.blog-comments__form textarea:focus {
+  border-color: #111;
+  outline: none;
+}
+.blog-comments__form .blog-comments__submit {
+  align-self: flex-start;
+  background: #111;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.blog-comments__form .blog-comments__submit:hover {
+  background: #333;
+}
+.blog-comments__form .blog-comments__submit:active {
+  transform: scale(0.97);
+}
+.blog-comments__list {
+  margin-top: 10px;
+}
+.blog-comments__list .comment-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #ececec;
+}
+.blog-comments__list .comment-item b {
+  font-size: 15px;
+  font-weight: 600;
+}
+.blog-comments__list .comment-item p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+}
+.blog-comments__list .comment-item .comment-date {
+  font-size: 12px;
+  color: #777;
+}
+
 .about-page section {
   padding: 80px 0;
 }

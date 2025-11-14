@@ -136,3 +136,115 @@
     font-size: 15px;
   }
 }
+
+.blog-comments {
+  margin-top: 40px;
+  padding: 20px 0;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: "Manrope", sans-serif;
+  }
+
+  &__login-required {
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    p {
+      margin: 0 0 12px 0;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .btn-login-comment {
+      background: #0a66c2;
+      color: #fff;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+
+      &:hover {
+        background: #004a9f;
+      }
+    }
+  }
+
+  &__form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      min-height: 90px;
+      font-size: 15px;
+      font-family: "Manrope", sans-serif;
+      transition: border-color 0.2s;
+
+      &:focus {
+        border-color: #111;
+        outline: none;
+      }
+    }
+
+    .blog-comments__submit {
+      align-self: flex-start;
+      background: #111;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #333;
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
+
+  // Danh sách bình luận
+  &__list {
+    margin-top: 10px;
+
+    .comment-item {
+      padding: 16px 0;
+      border-bottom: 1px solid #ececec;
+
+      b {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 6px 0;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      .comment-date {
+        font-size: 12px;
+        color: #777;
+      }
+    }
+  }
+}

@@ -33,6 +33,7 @@
     />
 
     <!-- Font Awesome -->
+    <!-- CDN Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -110,7 +111,711 @@
     <script src="./assets/js/map-modal.js"></script>
     <script>
       load("#header", "../template/header.html");
+    </script>
+
+    <section class="home-hero">
+      <div class="container">
+        <div class="row">
+          <div class="col col-xl-6">
+            <div class="home-hero__info">
+              <h1 class="section-heading home-hero--heading">
+                New way to plan your next dream trip
+              </h1>
+              <p class="section-desc home-hero--desc">
+                Create a fully customized day-by-day itinerary for free. Imagine
+                checking one place for your travel details and getting a heads
+                up as things happen throughout your trip
+              </p>
+              <form action="" method="get" class="home-hero--search-form">
+                <div class="home-hero--search-box">
+                  <div class="home-hero--search-input">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input
+                      type="text"
+                      name="destination"
+                      placeholder="Where to go?"
+                      required
+                    />
+                  </div>
+                  <div class="home-hero--search__divider"></div>
+                  <div class="home-hero--search-input">
+                    <i class="fa-regular fa-calendar"></i>
+                    <input
+                      type="text"
+                      name="destination"
+                      placeholder="When to go?"
+                      required
+                    />
+                  </div>
+                </div>
+                <button class="btn home-hero--search-btn" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col col-xl-5 offset-1">
+            <div class="home-hero__content">
+              <figure class="home-hero__img-wrap">
+                <img
+                  src="./assets/images/home/home-content.png"
+                  alt=""
+                  class="home-hero__img"
+                />
+                <img
+                  src="./assets/images/home/home-decor.png"
+                  alt=""
+                  class="home-hero__img-decor1"
+                />
+                <img
+                  src="./assets/images/home/home-decor2.png"
+                  alt=""
+                  class="home-hero__img-decor2"
+                />
+                <img
+                  src="./assets/images/destination/Map.png"
+                  alt=""
+                  class="home-hero__img-map"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <div class="home-hero__group">
+              <div class="home-hero__group-media">
+                <img
+                  src="./assets/images/home/group1.png"
+                  alt=""
+                  class="home-hero__group-media-img"
+                />
+              </div>
+              <div class="home-hero__group-content">
+                <h3 class="home-hero__group-title">
+                  Find authentic experiences
+                </h3>
+                <p class="home-hero__group-desc">
+                  Follow your curiosity, feel the joy of real discoveries, and
+                  explore more of the world.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="home-hero__group">
+              <div class="home-hero__group-media">
+                <img
+                  src="./assets/images/home/group2.png"
+                  alt=""
+                  class="home-hero__group-media-img"
+                />
+              </div>
+              <div class="home-hero__group-content">
+                <h3 class="home-hero__group-title">
+                  Book with your flexibility
+                </h3>
+                <p class="home-hero__group-desc">
+                  Get free cancellation, plan on the go, and book last minute.
+                  Discover the world your way.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="home-hero__group">
+              <div class="home-hero__group-media">
+                <img
+                  src="./assets/images/home/group3.png"
+                  alt=""
+                  class="home-hero__group-media-img"
+                />
+              </div>
+              <div class="home-hero__group-content">
+                <h3 class="home-hero__group-title">
+                  Explore the best possibilities
+                </h3>
+                <p class="home-hero__group-desc">
+                  Enjoy personalized recommendations and itineraries with over
+                  60,000+ guided tours.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home-feature">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="home-feature__media">
+              <div class="home-feature__media-wrap">
+                <img
+                  src="./assets/images/home/VietNamHome.jpg"
+                  alt=""
+                  class="home-feature__media-img"
+                />
+                <div class="home-feature__media-location">
+                  <i
+                    class="fa-solid fa-location-dot"
+                    style="color: #ff5b26"
+                  ></i>
+                  <div class="home-feature__media-location-name">
+                    Ha Giang Loop
+                  </div>
+                </div>
+                <div class="home-feature__media-card">
+                  <h3 class="home-feature__media-card-title">
+                    How Your Experience?
+                  </h3>
+                  <div class="home-feature__media-card-list">
+                    <span class="home-feature__media-card-icon">😀</span>
+                    <span class="home-feature__media-card-icon">😍</span>
+                    <span class="home-feature__media-card-icon">☹️</span>
+                    <span class="home-feature__media-card-icon">😡</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="home-feature__content">
+              <h2 class="home-feature__content-heading">
+                Your itinerary and your travel map in one view
+              </h2>
+              <p class="home-feature__content-desc">
+                Your itinerary and your travel map in one view. No more
+                switching between different apps, tabs, and tools to keep track
+                of your travel plans. Providing the best.
+              </p>
+            </div>
+          </div>
+        </div>
+        <h2 class="home-feature__heading">Trip planner benefits</h2>
+        <p class="home-feature__desc">
+          Create a fully customized day-by-day itinerary for free. Imagine
+          checking one place for your travel details.
+        </p>
+        <div class="row row-cols-2">
+          <div class="col">
+            <div class="home-feature__card">
+              <figure class="home-feature__card-wrap">
+                <img
+                  src="./assets/images/home/card2.png"
+                  alt=""
+                  class="home-feature__card-img"
+                />
+              </figure>
+              <h3 class="home-feature__card-heading">
+                You handle the booking, we'll take it from there
+              </h3>
+              <p class="home-feature__card-desc">
+                Unlike other travel apps, we can organize your travel plans no
+                matter where you book. Simply forward your confirmation emails
+                to us we will do the rest.
+              </p>
+              <a
+                href="#!"
+                class="home-feature__card-more home-feature__card-more-left"
+                >Learn how it works
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                >
+                  <path
+                    d="M0.75 0.75H8.75M8.75 0.75V8.75M8.75 0.75L0.75 8.75"
+                    stroke="#FF5B26"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="col d-flex">
+            <div class="home-feature__card">
+              <figure
+                class="home-feature__card-wrap home-feature__card-wrap-blue"
+              >
+                <img
+                  src="./assets/images/home/card1.png"
+                  alt=""
+                  class="home-feature__card-img"
+                />
+              </figure>
+              <h3 class="home-feature__card-heading">
+                Helpful reminders and alerts so you don't miss a beat
+              </h3>
+              <p class="home-feature__card-desc">
+                Packed with features that give you a leg up on changes and help
+                you make the most of all your trips, Pathway Pro is where the
+                magic happens.
+              </p>
+              <a href="" class="home-feature__card-more"
+                >Learn how it works
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                >
+                  <path
+                    d="M0.75 0.75H8.75M8.75 0.75V8.75M8.75 0.75L0.75 8.75"
+                    stroke="#FF5B26"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="row rol-cols-2">
+          <div class="col">
+            <div class="home-feature__tips-content">
+              <h2 class="home-feature__heading home-feature__tips-heading">
+                Build your perfect road trip
+              </h2>
+              <div class="home-feature__tips">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="extend"
+                  class="home-feature__tips-checkbox"
+                />
+                <label for="extend" class="home-feature__tips-extend"></label>
+                <div class="home-feature__tips-info">
+                  <h3 class="home-feature__tips-label">
+                    Add places with a click
+                  </h3>
+                  <p class="section-desc home-feature__tips-answer">
+                    We crawled the web so you don’t have to. Easily save
+                    mentioned places in short times.
+                  </p>
+                </div>
+              </div>
+              <div class="home-feature__tips">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="extend6"
+                  class="home-feature__tips-checkbox"
+                />
+                <label for="extend6" class="home-feature__tips-extend"></label>
+                <div class="home-feature__tips-info">
+                  <h3 class="home-feature__tips-label">Collaborate easily</h3>
+                  <p class="section-desc home-feature__tips-answer">
+                    Plan along with your friends with live syncing and
+                    collaborative editing. Providing the best services.
+                  </p>
+                </div>
+              </div>
+              <div class="home-feature__tips">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="extend1"
+                  class="home-feature__tips-checkbox"
+                />
+                <label for="extend1" class="home-feature__tips-extend"></label>
+                <div class="home-feature__tips-info">
+                  <h3 class="home-feature__tips-label">
+                    Import flight and hotel reservations
+                  </h3>
+                  <p class="section-desc home-feature__tips-answer">
+                    Connect or forward your emails to get them magically added
+                    into your trip plan. Providing the best services.
+                  </p>
+                </div>
+              </div>
+              <div class="home-feature__tips">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="extend2"
+                  class="home-feature__tips-checkbox"
+                />
+                <label for="extend2" class="home-feature__tips-extend"></label>
+                <div class="home-feature__tips-info">
+                  <h3 class="home-feature__tips-label">
+                    Optimize your trip road
+                  </h3>
+                  <p class="section-desc home-feature__tips-answer">
+                    Perfect for road trips and saving $$$ on gas! Get the best
+                    route auto-rearranged. Providing the best services.
+                  </p>
+                </div>
+              </div>
+              <div class="home-feature__tips">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="extend3"
+                  class="home-feature__tips-checkbox"
+                />
+                <label for="extend3" class="home-feature__tips-extend"></label>
+                <div class="home-feature__tips-info">
+                  <h3 class="home-feature__tips-label">
+                    Get personalized suggestions
+                  </h3>
+                  <p class="section-desc home-feature__tips-answer">
+                    Find the best places to visit with smart recommendations
+                    based on your itinerary. Providing the best services.
+                  </p>
+                </div>
+              </div>
+              <div class="home-feature__tips">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="extend4"
+                  class="home-feature__tips-checkbox"
+                />
+                <label for="extend4" class="home-feature__tips-extend"></label>
+                <div class="home-feature__tips-info">
+                  <h3 class="home-feature__tips-label">
+                    Export your places to Google Maps
+                  </h3>
+                  <p class="section-desc home-feature__tips-answer">
+                    Synced automatically places to google maps, for when plans
+                    change. Providing the best services.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="home-feature__tips-media">
+              <img
+                src="./assets/images/home/Card.png"
+                alt=""
+                class="home-feature__tips-media-img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home-comment">
+      <img
+        src="./assets/images/home/map.svg"
+        alt=""
+        class="home-comment__decor"
+      />
+      <div class="home-comment__card">
+        <img
+          src="./assets/images/home/quote.svg"
+          alt=""
+          class="home-comment__card-decor"
+        />
+        <p class="home-comment__content">
+          “So much easier to visualize and plan a road trip to my favorite rock
+          climbing destinations and explore the area around. It was my first
+          time ever doing a solo trip. All I had to do was show up. The scenes
+          in Egypt were breathtaking and I saw places that I never thought I’d
+          see. Was a great experience.”
+        </p>
+        <span class="home-comment__author">Elizabeth</span>
+        <span class="home-comment__title">Solo Traveler</span>
+      </div>
+
+      <div class="home-comment__card">
+        <img
+          src="./assets/images/home/quote.svg"
+          alt=""
+          class="home-comment__card-decor"
+        />
+        <p class="home-comment__content">
+          “The booking process was super easy and straightforward. I loved how I
+          could see real photos from other travelers before deciding. The trip
+          to Bali was perfectly organized — I didn’t have to worry about
+          anything.”
+        </p>
+        <span class="home-comment__author">Michael Chen</span>
+        <span class="home-comment__title">Adventure Enthusiast</span>
+      </div>
+
+      <div class="home-comment__card">
+        <img
+          src="./assets/images/home/quote.svg"
+          alt=""
+          class="home-comment__card-decor"
+        />
+        <p class="home-comment__content">
+          “Such an amazing experience! The customer support was quick to
+          respond, and they customized my itinerary exactly how I wanted. I’ll
+          definitely book with them again.”
+        </p>
+        <span class="home-comment__author">Sophie Martin</span>
+        <span class="home-comment__title">Travel Blogger</span>
+      </div>
+
+      <div class="home-comment__card">
+        <img
+          src="./assets/images/home/quote.svg"
+          alt=""
+          class="home-comment__card-decor"
+        />
+        <p class="home-comment__content">
+          “From start to finish, everything was seamless. I traveled with my
+          family and we all had a wonderful time exploring Japan. Every detail
+          was taken care of, down to the restaurant reservations.”
+        </p>
+        <span class="home-comment__author">Daniel Nguyen</span>
+        <span class="home-comment__title">Family Traveler</span>
+      </div>
+
+      <div class="home-comment__card">
+        <img
+          src="./assets/images/home/quote.svg"
+          alt=""
+          class="home-comment__card-decor"
+        />
+        <p class="home-comment__content">
+          “I was a bit nervous at first, but the experience turned out
+          incredible. The local guides were super friendly, and I discovered so
+          many hidden gems. Highly recommend this service to anyone who loves
+          adventure!”
+        </p>
+        <span class="home-comment__author">Amira Hassan</span>
+        <span class="home-comment__title">Backpacker</span>
+      </div>
+      <div class="home-comment__pagination">
+        <span
+          class="home-comment__pagination-dot home-comment__pagination-dot-active"
+        ></span
+        ><span class="home-comment__pagination-dot"></span
+        ><span class="home-comment__pagination-dot"></span
+        ><span class="home-comment__pagination-dot"></span
+        ><span class="home-comment__pagination-dot"></span>
+      </div>
+    </section>
+    <section class="home-about">
+      <div class="container">
+        <div class="row row-cols-2">
+          <div class="col">
+            <div class="home-about__media">
+              <div class="home-about__media-wrap">
+                <img
+                  src="./assets/images/home/home-about.svg"
+                  alt=""
+                  class="home-about__media-wrap-img"
+                />
+                <div class="home-about__media-wrap-card">
+                  <img
+                    src="./assets/images/home/quote.svg"
+                    class="home-about__media-wrap-avt"
+                    alt=""
+                  />
+                  <p class="home-about__media-wrap-cmt">
+                    “They are very amazing. I enjoyed my trip guide here!”
+                  </p>
+                  <span class="home-about__media-wrap-author">Chris Gayle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="home-about__content">
+              <h2 class="section-heading home-about__content-heading">
+                We sharing insider travel knowledge for 20 years
+              </h2>
+              <p class="section-desc home-about__content-desc">
+                Our travel agency group tours are aimed at travelers looking to
+                discover the magic of this remarkable world. Our adventure
+                leaders will help you.
+              </p>
+              <p class="home-about__content-info">
+                Supporting millions of travellers since 1982
+              </p>
+              <p class="home-about__content-info">
+                More than 149 travel titles currently in print
+              </p>
+              <p class="home-about__content-info">
+                The UK’s favourite travel guide publisher
+              </p>
+              <p class="home-about__content-info">
+                Outstanding customer satisfaction
+              </p>
+              <a href="#!" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home-destination">
+      <div class="container">
+        <div class="home-destination__header">
+          <h2 class="section-heading home-destination__heading">
+            Discover your next destination
+          </h2>
+          <a href="#!" class="btn home-destination__btn">More Destination</a>
+        </div>
+        <div class="row row-cols-3">
+          <div class="col">
+            <a href="#!" class="destination-card">
+              <img
+                src="../assets/images/destination/Vietnam.jpg"
+                alt=""
+                class="destination__img"
+              />
+              <div class="destination__info">
+                <p class="destination__address">City/Asia</p>
+                <h3 class="destination__heading">VietNam</h3>
+                <div class="destination__rate">
+                  <img
+                    src="../assets/images/destination/star.svg"
+                    alt=""
+                    class="descoration__rate-star"
+                  />
+                  <span>5.0 Ratings</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Col 2  -->
+          <div class="col">
+            <a href="#!" class="destination-card">
+              <img
+                src="../assets/images/destination/VietNam (2).jpg"
+                alt=""
+                class="destination__img"
+              />
+              <div class="destination__info">
+                <p class="destination__address">City/Asia</p>
+                <h3 class="destination__heading">Hue, VietNam</h3>
+                <div class="destination__rate">
+                  <img
+                    src="../assets/images/destination/star.svg"
+                    alt=""
+                    class="descoration__rate-star"
+                  />
+                  <span>5.0 Ratings</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Col 3  -->
+          <div class="col">
+            <a href="#!" class="destination-card">
+              <img
+                src="../assets/images/destination/Bali.jpg"
+                alt=""
+                class="destination__img"
+              />
+              <div class="destination__info">
+                <p class="destination__address">City/Asia</p>
+                <h3 class="destination__heading">Bali, Indonesia</h3>
+                <div class="destination__rate">
+                  <img
+                    src="../assets/images/destination/star.svg"
+                    alt=""
+                    class="descoration__rate-star"
+                  />
+                  <span>5.0 Ratings</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home-blog">
+      <div class="container">
+        <h2 class="section-heading home-blog__heading">Latest travel diary</h2>
+        <div class="row row-cols-3">
+          <div class="col">
+            <div class="blog-card">
+              <a href="#!" class="blog-card__img-wrap">
+                <img
+                  src="../assets/images/destination/Bali.jpg"
+                  alt=""
+                  class="blog-card__img"
+                />
+              </a>
+              <a href="#!" class="blog-card__heading">
+                8 Amazing Places to Celebrate New Year 2023
+              </a>
+              <a href="#!" class="blog-card__desc">
+                Whether it’s champagne to ring in the New Year, a countdown
+                party, or an intimate dinner, everyone plans something
+                special...
+              </a>
+              <a href="#!" class="blog-card__more">By David Warner</a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="blog-card">
+              <a href="#!" class="blog-card__img-wrap">
+                <img
+                  src="../assets/images/destination/Bali.jpg"
+                  alt=""
+                  class="blog-card__img"
+                />
+              </a>
+              <a href="#!" class="blog-card__heading">
+                8 Amazing Places to Celebrate New Year 2023
+              </a>
+              <a href="#!" class="blog-card__desc">
+                Whether it’s champagne to ring in the New Year, a countdown
+                party, or an intimate dinner, everyone plans something
+                special...
+              </a>
+              <a href="#!" class="blog-card__more">By David Warner</a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="blog-card">
+              <a href="#!" class="blog-card__img-wrap">
+                <img
+                  src="../assets/images/destination/Bali.jpg"
+                  alt=""
+                  class="blog-card__img"
+                />
+              </a>
+              <a href="#!" class="blog-card__heading">
+                8 Amazing Places to Celebrate New Year 2023
+              </a>
+              <a href="#!" class="blog-card__desc">
+                Whether it’s champagne to ring in the New Year, a countdown
+                party, or an intimate dinner, everyone plans something
+                special...
+              </a>
+              <a href="#!" class="blog-card__more">By David Warner</a>
+            </div>
+          </div>
+          <a href="./page/blog.html" class="btn home-blog__btn">Read All Blog</a>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="footer"></footer>
+    <script>
       load("#footer", "../template/footer.html");
     </script>
   </body>
+  <script>
+    const dots = document.querySelectorAll(".home-comment__pagination-dot");
+    const cards = document.querySelectorAll(".home-comment__card");
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        // Xóa class active khỏi tất cả dots
+        dots.forEach((d) =>
+          d.classList.remove("home-comment__pagination-dot-active")
+        );
+        // Gán class active cho dot hiện tại
+        dot.classList.add("home-comment__pagination-dot-active");
+
+        // Xóa class active khỏi tất cả comment cards
+        cards.forEach((card) => card.classList.remove("active"));
+        // Gán class active cho comment tương ứng với dot
+        cards[index].classList.add("active");
+      });
+    });
+  </script>
 </html>

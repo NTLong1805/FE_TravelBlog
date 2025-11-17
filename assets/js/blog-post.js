@@ -1,4 +1,4 @@
-import { callApi, uploadFileApi } from "./apiHelper.js";
+import { callApi } from "./apiHelper.js";
 
 var blogId = "1";
 var blogApi = "api/v1/blogs/";

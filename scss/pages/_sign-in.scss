@@ -1,26 +1,32 @@
 @use "../abstracts";
-.signin{
+
+.signin {
     padding-top: 158px;
     padding-bottom: 70px;
-    @include abstracts.screen(md){
+
+    @include abstracts.screen(md) {
         padding-top: 100px;
         padding-bottom: 10px;
     }
-    &__media{
+
+    &__media {
         display: flex;
-        flex-direction:column;
-        @include abstracts.screen(lg){
+        flex-direction: column;
+
+        @include abstracts.screen(lg) {
             display: none;
         }
     }
-    &__img{
+
+    &__img {
         width: 492px;
         height: 492px;
         object-fit: cover;
         margin-top: 60px;
         margin-left: auto;
     }
-    &__card{
+
+    &__card {
         margin: 0 auto;
         width: 430px;
         padding: 30px;
@@ -28,15 +34,18 @@
         background: #FFF;
         box-shadow: 0 20px 90px 0 rgba(25, 27, 29, 0.10);
     }
-    &__heading{
+
+    &__heading {
         color: var(--font-color);
         text-align: center;
         font-family: Syne;
         font-size: 2.8rem;
         font-weight: 600;
-        line-height: 1.35; /* 135.714% */
+        line-height: 1.35;
+        /* 135.714% */
     }
-    &__list{
+
+    &__list {
         margin-top: 30px;
         margin-bottom: 20px;
         display: flex;
@@ -50,9 +59,10 @@
 
         font-size: 1.6rem;
         font-weight: 400;
-        line-height: 1.75; /* 175% */
+        line-height: 1.75;
+        /* 175% */
 
-        &-item{
+        &-item {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -63,33 +73,39 @@
             background: #FFF;
             padding: 11px;
 
-            &:hover{
+            &:hover {
                 background-color: var(--main-color);
                 color: #FFF;
             }
         }
     }
-    &__link{
+
+    &__link {
         display: block;
         color: var(--desc-color);
         text-align: center;
         font-size: 1.6rem;
         font-weight: 400;
-        line-height: 1.75; /* 175% */
+        line-height: 1.75;
+        /* 175% */
         margin-bottom: 20px;
         transition: 0.5s;
 
-        &--forgot{
+        &--forgot {
             text-align: right;
         }
-        &--strong{
+
+        &--strong {
             color: var(--font-color);
         }
-        &--forgot:hover,&--strong:hover{
+
+        &--forgot:hover,
+        &--strong:hover {
             color: var(--main-color);
         }
-    } 
-    &__input{
+    }
+
+    &__input {
         margin-bottom: 12px;
         padding: 30px;
         width: 100%;
@@ -101,6 +117,92 @@
         color: var(--desc-color);
         font-size: 1.6rem;
         font-weight: 400;
-        line-height: 1.75; /* 175% */
+        line-height: 1.75;
+        /* 175% */
     }
+
+    &__otp {
+        margin-top: 24px;
+        padding: 20px;
+        border: 1px solid #e6e6e6;
+        border-radius: 12px;
+        background: #fafafa;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        animation: fadeIn 0.25s ease;
+        font-family: "Manrope", sans-serif;
+
+        &-heading {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0e558b;
+            margin-bottom: 15px;
+        }
+
+        &-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        &-box {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        &-item {
+            width: 55px;
+            height: 55px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            font-size: 2.4rem;
+            font-weight: 600;
+            text-align: center;
+            background: #fff;
+
+            &:focus {
+                border-color: #0e558b;
+                outline: none;
+                box-shadow: 0 0 4px rgba(14, 85, 139, 0.3);
+            }
+
+            @include abstracts.screen(sm) {
+                width: 45px;
+                height: 45px;
+                font-size: 2rem;
+            }
+        }
+
+        &-btn {
+            margin-top: 8px;
+        }
+
+        &-resend {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #0e558b;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .hidden {
+        display: none !important;
+    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

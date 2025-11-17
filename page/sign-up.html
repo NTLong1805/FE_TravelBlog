@@ -33,14 +33,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="../assets/js/scripts.js"></script>
   </head>
 
   <body>
     <header id="header" class="header"></header>
-    <script>
-      load("#header", "../template/header.html");
-    </script>
+   
     <section class="signin">
       <div class="container">
         <div class="row">
@@ -77,9 +74,14 @@
                 <input type="text" class="signin__input" placeholder="Your last name" />
                 <input type="text" class="signin__input" placeholder="Email" />
                 <input
-                  type="text"
+                  type="password"
                   class="signin__input"
                   placeholder="Password"
+                />
+                <input
+                  type="password"
+                  class="signin__input"
+                  placeholder="Confirm Password"
                 />
                 <button class="btn btn-signin" type="submit">Sign Up</button>
               </form>
@@ -88,9 +90,37 @@
                 <a href="./sign-in.html" class="signin__link--strong">Sign In</a></span
               >
             </div>
+
+            <div class="signin__card signin__card--otp hidden" id="otpCard">
+              <h2 class="signin__otp-heading">Verify OTP</h2>
+
+              <p class="signin__otp-desc">
+                We have sent a verification code to your email.
+              </p>
+
+              <div class="signin__otp-box">
+                <input type="text" maxlength="1" class="signin__otp-item" />
+                <input type="text" maxlength="1" class="signin__otp-item" />
+                <input type="text" maxlength="1" class="signin__otp-item" />
+                <input type="text" maxlength="1" class="signin__otp-item" />
+              </div>
+
+              <button id="btnVerifyOtp" class="btn btn-signin signin__otp-btn">
+                Verify
+              </button>
+
+              <span class="signin__otp-resend">Resend OTP?</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+    <script>
+      load("#header", "../template/header.html");
+    </script>
+    <script type="module" src="../assets/js/sign-up.js"></script>
   </body>
 </html>

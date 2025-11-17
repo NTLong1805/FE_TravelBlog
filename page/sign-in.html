@@ -33,14 +33,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="../assets/js/scripts.js"></script>
   </head>
 
   <body>
     <header id="header" class="header"></header>
-    <script>
-      load("#header", "../template/header.html");
-    </script>
+
     <section class="signin">
       <div class="container">
         <div class="row">
@@ -79,17 +76,74 @@
                   class="signin__input"
                   placeholder="Password"
                 />
-                <a href="#!" class="signin__link signin__link--forgot">Forgot Password?</a>
+                <a href="#!" class="signin__link signin__link--forgot"
+                  >Forgot Password?</a
+                >
                 <button class="btn btn-signin" type="submit">Sign In</button>
               </form>
+
+              <div class="signin__otp hidden" id="signinOtp">
+                <h3 class="signin__otp-heading">Enter OTP</h3>
+
+                <p class="signin__otp-desc">
+                  We've sent a verification code to your email.
+                </p>
+
+                <input
+                  type="text"
+                  class="signin__otp-input"
+                  placeholder="Enter 6-digit OTP"
+                  id="otpInput"
+                />
+
+                <button
+                  class="btn btn-signin signin__otp-btn"
+                  id="btnVerifyOtp"
+                >
+                  Verify OTP
+                </button>
+
+                <span class="signin__otp-resend">Resend OTP?</span>
+              </div>
+
               <span class="signin__link"
                 >Don’t a have account?
-                <a href="./sign-up.html" class="signin__link--strong">Sign Up</a></span
+                <a href="./sign-up.html" class="signin__link--strong"
+                  >Sign Up</a
+                ></span
               >
+            </div>
+
+            <div class="signin__card signin__card--otp hidden" id="otpCard">
+              <h2 class="signin__otp-heading">Verify OTP</h2>
+
+              <p class="signin__otp-desc">
+                We have sent a verification code to your email.
+              </p>
+
+              <div class="signin__otp-box">
+                <input type="text" maxlength="1" class="signin__otp-item" />
+                <input type="text" maxlength="1" class="signin__otp-item" />
+                <input type="text" maxlength="1" class="signin__otp-item" />
+                <input type="text" maxlength="1" class="signin__otp-item" />
+              </div>
+
+              <button id="btnVerifyOtp" class="btn btn-signin signin__otp-btn">
+                Verify
+              </button>
+
+              <span class="signin__otp-resend">Resend OTP?</span>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+    <script>
+      load("#header", "../template/header.html");
+    </script>
+    <script src="../assets/js/sign-in.js"></script>
   </body>
 </html>

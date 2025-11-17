@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FAQs - Admin</title>
+    <title>Users - Admin</title>
     <base href="../../">
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
@@ -14,7 +14,7 @@
             padding: 100px 20px 0px 20px;
         }
 
-        #faq-table {
+        #user-table {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
@@ -59,32 +59,33 @@
             <header id="header" class="app-header"></header>
             <div class="container-card body-wrapper-inner">
                 <div class="row">
-                    <h5 class="col-10 card-title fw-bolder fs-7 mb-4">FAQs</h5>
+                    <h5 class="col-10 card-title fw-bolder fs-7 mb-4">Users</h5>
                     <div class="col-2 d-flex justify-content-end align-items-center mb-4">
-                        <button class="btnAddFaq btn btn btn-primary">
+                        <button class="btnAddUser btn btn btn-primary">
                             <i class="ti ti-plus"></i>
-                            <span class="ms-2">Add FAQ</span>
+                            <span class="ms-2">Add User</span>
                         </button>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body p-0">
-                        <div id="faq-table" class="table-responsive"
+                        <div id="user-table" class="table-responsive"
                             style="position: relative; max-height: 700px;">
                             <table class="table table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Question</th>
-                                        <th>Answer</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
                                         <th style="padding-left: 24px;">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody class="faq-table-body">
+                                <tbody class="user-table-body">
                                     </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="4">
+                                        <td colspan="5">
                                             <nav aria-label="pagination">
                                                 <ul class="pagination justify-content-center m-0">
                                                     </ul>
@@ -100,23 +101,31 @@
         </div>
     </div>
 
-    <div class="modal fade" id="addFaqModal" tabindex="-1" aria-labelledby="addFaqModalLabel"
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form id="addFaqForm">
+                <form id="addUserForm">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addFaqModalLabel">Add New FAQ</h5>
+                        <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="faqQuestion" class="form-label">Question</label>
-                            <input type="text" class="form-control" id="faqQuestion" name="faqQuestion" required>
+                            <label for="userFirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="userFirstName" name="userFirstName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="faqAnswer" class="form-label">Answer</label>
-                            <textarea class="form-control" id="faqAnswer" name="faqAnswer" rows="4" required></textarea>
+                            <label for="userLastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="userLastName" name="userLastName" required>
+                        </div>
+                         <div class="mb-3">
+                            <label for="userEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="userEmail" name="userEmail" required>
+                        </div>
+                         <div class="mb-3">
+                            <label for="userPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="userPassword" name="userPassword" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -134,7 +143,7 @@
     <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="assets/js/admin/scripts.js"></script>
-    <script type="module" src="assets/js/admin/faq.js"></script> <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script type="module" src="assets/js/admin/users.js"></script> <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
 </html>

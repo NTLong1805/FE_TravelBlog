@@ -1241,7 +1241,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn__signup {
   padding: 8px 24px;
-  width: 107px;
+  width: 108px;
 }
 @media (max-width: 767.98px) {
   .btn__signup {
@@ -1555,17 +1555,15 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   right: 0;
   color: var(--font-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.71; /* 171.429% */
 }
 @media (max-width: 991.98px) {
   .detail-related__card-rate {
     top: 5%;
     right: 10%;
   }
-}
-.detail-related__card-rate {
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1.71; /* 171.429% */
 }
 .detail-related__card-desc {
   color: var(--desc-color);
@@ -1784,13 +1782,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .header .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
 }
 .header .logo img {
   width: 28px;
   height: 28px;
+  object-fit: cover;
+  margin-right: 12px;
 }
 .header .logo span {
   font-size: 18px;
@@ -1825,7 +1825,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   color: #333;
   text-decoration: none;
-  width: 39px;
+  width: 50px;
 }
 .header .auth .login:hover {
   color: #ff5722;
@@ -3867,15 +3867,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
 }
 @media (max-width: 767.98px) {
+  .why-us {
+    margin: 0;
+  }
   .why-us .col-md-6:last-child {
     text-align: center;
   }
   .why-us__list {
     padding-left: 0;
     align-items: center;
-  }
-  .why-us {
-    margin: 0;
   }
 }
 .why-us__list {
@@ -4237,12 +4237,10 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
   font-size: 20px;
   line-height: 1;
+  object-fit: cover;
 }
 .faq-accordion__icon::before {
   content: "+";
-}
-.faq-accordion__icon {
-  object-fit: cover;
 }
 .faq-accordion__answer {
   max-height: 0;

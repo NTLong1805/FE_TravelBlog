@@ -19,12 +19,15 @@
         }
     }
     .logo {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 12px;
         img {
             width: 28px;
             height: 28px;
+            object-fit: cover;
+            margin-right: 12px;
+
         }
 
         span {
@@ -55,7 +58,7 @@
             font-size: 14px;
             color: #333;
             text-decoration: none;
-            width: 39px;
+            width: 50px;
 
             &:hover {
                 color: #ff5722;

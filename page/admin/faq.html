@@ -1,140 +1,237 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>FAQs - Admin</title>
+        <base href="../../" />
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="assets/images/logos/favicon.png"
+        />
+        <link rel="stylesheet" href="assets/css/styles.min.css" />
+        <style>
+            .container-card {
+                margin: 0 auto;
+                padding: 100px 20px 0px 20px;
+            }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FAQs - Admin</title>
-    <base href="../../">
-    <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
-    <link rel="stylesheet" href="assets/css/styles.min.css" />
-    <style>
-        .container-card {
-            margin: 0 auto;
-            padding: 100px 20px 0px 20px;
-        }
+            #faq-table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                box-shadow: 1px 4px 16px rgba(0, 0, 0, 0.08);
+                border-radius: 0.5rem;
+            }
 
-        #faq-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            box-shadow: 1px 4px 16px rgba(0, 0, 0, 0.08);
-            border-radius: 0.5rem;
-        }
+            table td,
+            table th {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                border: none;
+                padding: 0.5rem 1rem;
+                vertical-align: middle !important;
+            }
 
-        table td,
-        table th {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            border: none;
-            padding: 0.5rem 1rem;
-            vertical-align: middle !important;
-        }
+            .card {
+                border-radius: 0.5rem;
+            }
 
-        .card {
-            border-radius: .5rem;
-        }
+            thead th {
+                top: 0;
+                position: sticky;
+                z-index: 2;
+            }
 
-        thead th {
-            top: 0;
-            position: sticky;
-            z-index: 2;
-        }
+            tfoot td {
+                position: sticky;
+                bottom: 0;
+                background: #f8f9fa;
+                z-index: 2;
+            }
+        </style>
+    </head>
 
-        tfoot td {
-            position: sticky;
-            bottom: 0;
-            background: #f8f9fa;
-            z-index: 2;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
-        <aside id="sidebar" class="left-sidebar"></aside>
-        <div class="body-wrapper">
-            <header id="header" class="app-header"></header>
-            <div class="container-card body-wrapper-inner">
-                <div class="row">
-                    <h5 class="col-10 card-title fw-bolder fs-7 mb-4">FAQs</h5>
-                    <div class="col-2 d-flex justify-content-end align-items-center mb-4">
-                        <button class="btnAddFaq btn btn btn-primary">
-                            <i class="ti ti-plus"></i>
-                            <span class="ms-2">Add FAQ</span>
-                        </button>
+    <body>
+        <div
+            class="page-wrapper"
+            id="main-wrapper"
+            data-layout="vertical"
+            data-navbarbg="skin6"
+            data-sidebartype="full"
+            data-sidebar-position="fixed"
+            data-header-position="fixed"
+        >
+            <aside id="sidebar" class="left-sidebar"></aside>
+            <div class="body-wrapper">
+                <header id="header" class="app-header"></header>
+                <div class="container-card body-wrapper-inner">
+                    <div class="row">
+                        <h5 class="col-10 card-title fw-bolder fs-7 mb-4">
+                            FAQs
+                        </h5>
+                        <div
+                            class="col-2 d-flex justify-content-end align-items-center mb-4"
+                        >
+                            <button class="btnAddFaq btn btn btn-primary">
+                                <i class="ti ti-plus"></i>
+                                <span class="ms-2">Add FAQ</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body p-0">
-                        <div id="faq-table" class="table-responsive"
-                            style="position: relative; max-height: 700px;">
-                            <table class="table table-striped mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Question</th>
-                                        <th>Answer</th>
-                                        <th style="padding-left: 24px;">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="faq-table-body">
-                                    </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="4">
-                                            <nav aria-label="pagination">
-                                                <ul class="pagination justify-content-center m-0">
-                                                    </ul>
-                                            </nav>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                    <form
+                        id="faqSearchForm"
+                        class="row g-3 align-items-end mb-4"
+                        autocomplete="off"
+                    >
+                        <div class="col-md-8 col-lg-6">
+                            <label
+                                for="faqSearchInput"
+                                class="form-label text-muted small mb-1"
+                                >Search FAQs</label
+                            >
+                            <div class="input-group shadow-sm">
+                                <span
+                                    class="input-group-text bg-white border-end-0"
+                                >
+                                    <i class="ti ti-search text-muted"></i>
+                                </span>
+                                <input
+                                    type="search"
+                                    class="form-control border-start-0"
+                                    id="faqSearchInput"
+                                    placeholder="Search by question or answer"
+                                    aria-label="Search FAQs"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <button type="submit" class="btn btn-primary w-100">
+                                Search
+                            </button>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <button
+                                type="button"
+                                class="btn btn-outline-secondary w-100"
+                                id="faqSearchReset"
+                                disabled
+                            >
+                                Clear
+                            </button>
+                        </div>
+                    </form>
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div
+                                id="faq-table"
+                                class="table-responsive"
+                                style="position: relative; max-height: 700px"
+                            >
+                                <table class="table table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Question</th>
+                                            <th>Answer</th>
+                                            <th style="padding-left: 24px">
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="faq-table-body"></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4">
+                                                <nav aria-label="pagination">
+                                                    <ul
+                                                        class="pagination justify-content-center m-0"
+                                                    ></ul>
+                                                </nav>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="addFaqModal" tabindex="-1" aria-labelledby="addFaqModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form id="addFaqForm">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addFaqModalLabel">Add New FAQ</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="faqQuestion" class="form-label">Question</label>
-                            <input type="text" class="form-control" id="faqQuestion" name="faqQuestion" required>
+        <div
+            class="modal fade"
+            id="addFaqModal"
+            tabindex="-1"
+            aria-labelledby="addFaqModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="addFaqForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addFaqModalLabel">
+                                Add New FAQ
+                            </h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
                         </div>
-                        <div class="mb-3">
-                            <label for="faqAnswer" class="form-label">Answer</label>
-                            <textarea class="form-control" id="faqAnswer" name="faqAnswer" rows="4" required></textarea>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="faqQuestion" class="form-label"
+                                    >Question</label
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="faqQuestion"
+                                    name="faqQuestion"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="faqAnswer" class="form-label"
+                                    >Answer</label
+                                >
+                                <textarea
+                                    class="form-control"
+                                    id="faqAnswer"
+                                    name="faqAnswer"
+                                    rows="4"
+                                    required
+                                ></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Add
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/admin/app.min.js"></script>
-    <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="assets/libs/simplebar/dist/simplebar.js"></script>
-    <script src="assets/js/admin/scripts.js"></script>
-    <script type="module" src="assets/js/admin/faq.js"></script> <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-</body>
-
+        <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/admin/app.min.js"></script>
+        <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+        <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+        <script src="assets/js/admin/scripts.js"></script>
+        <script type="module" src="assets/js/admin/faq.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    </body>
 </html>

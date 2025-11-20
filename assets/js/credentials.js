@@ -12,7 +12,7 @@ async function authentication() {
     }),
   });
 
-  localStorage.setItem("token", res.token);
+  localStorage.setItem("admin_token", res.token);
 }
 
 export { authentication };

@@ -1,5 +1,4 @@
 import { callApi } from "../apiHelper.js";
-import { authentication } from "../credentials.js";
 
 var apiBlogSearch = "api/v1/admin/blogs/search";
 var apiUserSearch = "api/v1/admin/user/search";
@@ -25,7 +24,6 @@ const StatusClass = {
 };
 
 $(document).ready(async function () {
-  await authentication();
   await fetchUsers();
   await fetchBlogs();
 });
@@ -35,7 +33,7 @@ $(document).on("click", ".btnPostBlog.btn.btn-primary", function () {
 });
 
 async function fetchUsers() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
 
   try {
     const res = await callApi({
@@ -63,7 +61,7 @@ async function fetchUsers() {
 }
 
 async function fetchBlogs() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
 
   try {
     const res = await callApi({
@@ -82,10 +80,11 @@ async function fetchBlogs() {
     const result = res.result;
     blogs = Array.isArray(result.data) ? result.data : [];
     currentPage = 1;
-    renderTable(currentPage);
+    updateTable();
   } catch (err) {
     console.error("Failed to fetch blogs:", err);
     blogs = [];
+    updateTable();
   }
 }
 
@@ -105,8 +104,6 @@ function renderTable(page) {
   let rows = "";
   pageData.forEach((blog, idx) => {
     const author = userMap[blog.authorId] || "N/A";
-
-    const statusValue = 
 
     rows += `<tr>
                     <td>${start + idx + 1}</td>
@@ -134,6 +131,8 @@ function renderPagination() {
   $ul.empty();
 
   const totalPages = Math.ceil(blogs.length / pageSize);
+
+  console.log(totalPages);
 
   if (blogs.length === 0 || totalPages === 0) {
     $ul.closest("nav").hide();

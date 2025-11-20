@@ -1,5 +1,4 @@
 import { callApi, uploadFileApi } from "../apiHelper.js";
-import { authentication } from "../credentials.js";
 
 var editor;
 var apiCategory = "api/v1/admin/categories/search";
@@ -10,7 +9,6 @@ var thumbnailId = "";
 
 $(document).ready(async function () {
   initEditor();
-  await authentication();
   await loadCategories();
   await loadCountries();
 
@@ -43,7 +41,7 @@ function initEditor() {
         config: {
           uploader: {
             async uploadByFile(file) {
-              const token = localStorage.getItem("token");
+              const token = localStorage.getItem("admin_token");
               const response = await uploadFileApi(file, token);
               return {
                 success: 1,
@@ -71,7 +69,7 @@ function initEditor() {
 }
 
 async function uploadFile(file) {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
   try {
     const response = await uploadFileApi(file, token);
     const result = response.result;
@@ -83,7 +81,7 @@ async function uploadFile(file) {
 }
 
 async function loadCategories() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
   const res = await callApi({
     url: apiCategory,
     method: "POST",
@@ -102,7 +100,7 @@ function saveBlog() {
   editor
     .save()
     .then(async (outputData) => {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("admin_token");
 
       const res = await callApi({
         url: blogApi,
@@ -126,7 +124,7 @@ function saveBlog() {
 }
 
 async function loadCountries() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
   const res = await callApi({
     url: countryApi,
     method: "POST",
@@ -142,7 +140,7 @@ async function loadCountries() {
 }
 
 async function loadDestinationsByCountry(id) {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
   const url = destinationApi.replace("{id}", id);
   const res = await callApi({
     url: url,

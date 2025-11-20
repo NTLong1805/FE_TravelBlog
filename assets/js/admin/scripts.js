@@ -1,5 +1,5 @@
 $(document).ready(async function () {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
 
   if (token == null || token === '') {
     window.location.href = "page/admin/authentication-login.html";

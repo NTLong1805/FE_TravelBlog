@@ -1,5 +1,4 @@
 import { callApi } from "../apiHelper.js";
-import { authentication } from "../credentials.js";
 
 var apiUserSearch = "api/v1/admin/user/search";
 var userApi = "api/v1/admin/user";
@@ -12,7 +11,6 @@ var currentPage = 1;
 var pageSize = 10;
 
 $(document).ready(async function () {
-  await authentication();
   await fetchUsers();
 });
 
@@ -75,7 +73,7 @@ $(document).on("input", "#userSearchInput", function () {
 });
 
 async function fetchUsers() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
 
   try {
     const res = await callApi({
@@ -104,7 +102,7 @@ async function fetchUsers() {
 }
 
 async function addNewUser(firstName, lastName, email, password) {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("admin_token");
   
   try {
     await callApi({

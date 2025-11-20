@@ -1,5 +1,4 @@
 import { callApi } from "../apiHelper.js";
-import { authentication } from "../credentials.js";
 
 var apiFaqSearch = "api/v1/admin/faqs/search";
 var faqApi = "api/v1/admin/faqs";
@@ -12,7 +11,6 @@ var currentPage = 1;
 var pageSize = 10;
 
 $(document).ready(async function () {
-    await authentication();
     await fetchFaqs();
 });
 
@@ -71,7 +69,7 @@ $(document).on("input", "#faqSearchInput", function () {
 });
 
 async function fetchFaqs() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("admin_token");
 
     try {
         const res = await callApi({
@@ -100,7 +98,7 @@ async function fetchFaqs() {
 }
 
 async function addNewFaq(question, answer) {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("admin_token");
 
     try {
         await callApi({

@@ -18,10 +18,8 @@
     rel="stylesheet">
   <!-- Main CSS -->
   <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/header-footer.css">
   
-
-<body>
+  
 
 <body>
 
@@ -74,52 +72,63 @@
       <div class="explore-header">
         <h2 class="explore-title">Explore Sydney</h2>
 
-        <button class="explore-filter-btn">
-          <span>Top Attractions</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
+        <div class="explore-filter-wrapper">
+          <select class="explore-filter-select">
+            <option value="all">All Attractions</option>
+            <option value="top-attractions">Top Attractions</option>
+            <option value="top-restaurants">Top Restaurants</option>
+            <option value="top-entertainment">Top Entertainment</option>
+            <option value="top-shopping">Top Shopping</option>
+          </select>
+        </div>
       </div>
 
       <div class="card-grid">
 
         <!-- CARD 1 -->
-        <article class="place-card">
-          <div class="card-image-wrapper">
-            <img src="../assets/images/search result/bondi-beach.jpg" alt="Bondi Beach">
-            <span class="badge-location-small"><i class="fa-solid fa-location-dot"></i> Sydney</span>
-          </div>
-          <div class="card-body">
-            <h3>Bondi Beach</h3>
-            <p>Definitively Sydney, Bondi is one of the world's great beaches. It’s the closest ocean beach to the city centre.</p>
-            <div class="rating-row"><i class="fa-solid fa-star"></i><span>4.5 Ratings</span></div>
-          </div>
-        </article>
+        <a href="#" class="place-card-link">
+          <article class="place-card">
+            <div class="card-image-wrapper">
+              <img src="../assets/images/search result/bondi-beach.jpg" alt="Bondi Beach">
+              <span class="badge-location-small"><i class="fa-solid fa-location-dot"></i> Sydney</span>
+            </div>
+            <div class="card-body">
+              <h3>Bondi Beach</h3>
+              <p>Definitively Sydney, Bondi is one of the world's great beaches. It’s the closest ocean beach to the city centre.</p>
+              <div class="rating-row"><i class="fa-solid fa-star"></i><span>4.5 Ratings</span></div>
+            </div>
+          </article>
+        </a>
 
         <!-- CARD 2 -->
-        <article class="place-card">
-          <div class="card-image-wrapper">
-            <img src="../assets/images/search result/sydney-harbour-bridge.jpg" alt="Sydney Harbour Bridge">
-            <span class="badge-location-small"><i class="fa-solid fa-location-dot"></i> Sydney</span>
-          </div>
-          <div class="card-body">
-            <h3>Sydney Harbour Bridge</h3>
-            <p>Sydneysiders love their giant “coathanger”, opened in 1932. The best way to experience this landmark is by walking it.</p>
-            <div class="rating-row"><i class="fa-solid fa-star"></i><span>4.8 Ratings</span></div>
-          </div>
-        </article>
+        <a href="#" class="place-card-link">
+          <article class="place-card">
+            <div class="card-image-wrapper">
+              <img src="../assets/images/search result/sydney-harbour-bridge.jpg" alt="Sydney Harbour Bridge">
+              <span class="badge-location-small"><i class="fa-solid fa-location-dot"></i> Sydney</span>
+            </div>
+            <div class="card-body">
+              <h3>Sydney Harbour Bridge</h3>
+              <p>Sydneysiders love their giant “coathanger”, opened in 1932. The best way to experience this landmark is by walking it.</p>
+              <div class="rating-row"><i class="fa-solid fa-star"></i><span>4.8 Ratings</span></div>
+            </div>
+          </article>
+        </a>
 
         <!-- CARD 3 -->
-        <article class="place-card">
-          <div class="card-image-wrapper">
-            <img src="../assets/images/search result/watsons-bay.jpg" alt="Watsons Bay">
-            <span class="badge-location-small"><i class="fa-solid fa-location-dot"></i> Sydney</span>
-          </div>
-          <div class="card-body">
-            <h3>Watsons Bay</h3>
-            <p>Lovely Watsons Bay, east of the city center, was once a fishing village and is now a beautiful coastal escape.</p>
-            <div class="rating-row"><i class="fa-solid fa-star"></i><span>4.9 Ratings</span></div>
-          </div>
-        </article>
+        <a href="#" class="place-card-link">
+          <article class="place-card">
+            <div class="card-image-wrapper">
+              <img src="../assets/images/search result/watsons-bay.jpg" alt="Watsons Bay">
+              <span class="badge-location-small"><i class="fa-solid fa-location-dot"></i> Sydney</span>
+            </div>
+            <div class="card-body">
+              <h3>Watsons Bay</h3>
+              <p>Lovely Watsons Bay, east of the city center, was once a fishing village and is now a beautiful coastal escape.</p>
+              <div class="rating-row"><i class="fa-solid fa-star"></i><span>4.9 Ratings</span></div>
+            </div>
+          </article>
+        </a>
 
       </div>
 
@@ -213,94 +222,106 @@
     <div class="toolkit-grid">
 
       <!-- Card 1 -->
-      <article class="toolkit-card">
-        <div class="toolkit-icon">
-          <i class="fa-regular fa-clipboard"></i>
-        </div>
-        <h3 class="toolkit-card-title">Best Things to Do</h3>
-        <p class="toolkit-card-text">
-          Discover some of the most unique and fulfilling experiences your next
-          destination has to offer. Providing the best.
-        </p>
-        <button class="toolkit-plus-btn">
-          <span>+</span>
-        </button>
-      </article>
+      <a href="#" class="toolkit-card-link">
+        <article class="toolkit-card">
+          <div class="toolkit-icon">
+            <i class="fa-regular fa-clipboard"></i>
+          </div>
+          <h3 class="toolkit-card-title">Best Things to Do</h3>
+          <p class="toolkit-card-text">
+            Discover some of the most unique and fulfilling experiences your next
+            destination has to offer. Providing the best.
+          </p>
+          <button class="toolkit-plus-btn" aria-label="Learn more about Best Things to Do">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </article>
+      </a>
 
       <!-- Card 2 -->
-      <article class="toolkit-card">
-        <div class="toolkit-icon">
-          <i class="fa-regular fa-clock"></i>
-        </div>
-        <h3 class="toolkit-card-title">When to Visit</h3>
-        <p class="toolkit-card-text">
-          Tips &amp; travel trends to help you pick the perfect time to visit
-          this destination. Providing the best tips for you.
-        </p>
-        <button class="toolkit-plus-btn">
-          <span>+</span>
-        </button>
-      </article>
+      <a href="#" class="toolkit-card-link">
+        <article class="toolkit-card">
+          <div class="toolkit-icon">
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <h3 class="toolkit-card-title">When to Visit</h3>
+          <p class="toolkit-card-text">
+            Tips &amp; travel trends to help you pick the perfect time to visit
+            this destination. Providing the best tips for you.
+          </p>
+          <button class="toolkit-plus-btn" aria-label="Learn more about When to Visit">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </article>
+      </a>
 
       <!-- Card 3 -->
-      <article class="toolkit-card">
-        <div class="toolkit-icon">
-          <i class="fa-regular fa-clipboard"></i>
-        </div>
-        <h3 class="toolkit-card-title">Things to Know</h3>
-        <p class="toolkit-card-text">
-          Golden rules to keep in mind when traveling to this destination.
-          Providing the best tips &amp; tricks for you.
-        </p>
-        <button class="toolkit-plus-btn">
-          <span>+</span>
-        </button>
-      </article>
+      <a href="#" class="toolkit-card-link">
+        <article class="toolkit-card">
+          <div class="toolkit-icon">
+            <i class="fa-regular fa-clipboard"></i>
+          </div>
+          <h3 class="toolkit-card-title">Things to Know</h3>
+          <p class="toolkit-card-text">
+            Golden rules to keep in mind when traveling to this destination.
+            Providing the best tips &amp; tricks for you.
+          </p>
+          <button class="toolkit-plus-btn" aria-label="Learn more about Things to Know">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </article>
+      </a>
 
       <!-- Card 4 -->
-      <article class="toolkit-card">
-        <div class="toolkit-icon">
-          <i class="fa-solid fa-location-dot"></i>
-        </div>
-        <h3 class="toolkit-card-title">Neighborhoods to Explore</h3>
-        <p class="toolkit-card-text">
-          Add visiting these must-see local hot spots and culture centers to
-          your next travel itinerary. Providing the best tips.
-        </p>
-        <button class="toolkit-plus-btn">
-          <span>+</span>
-        </button>
-      </article>
+      <a href="#" class="toolkit-card-link">
+        <article class="toolkit-card">
+          <div class="toolkit-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h3 class="toolkit-card-title">Neighborhoods to Explore</h3>
+          <p class="toolkit-card-text">
+            Add visiting these must-see local hot spots and culture centers to
+            your next travel itinerary. Providing the best tips.
+          </p>
+          <button class="toolkit-plus-btn" aria-label="Learn more about Neighborhoods to Explore">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </article>
+      </a>
 
       <!-- Card 5 -->
-      <article class="toolkit-card">
-        <div class="toolkit-icon">
-          <i class="fa-solid fa-route"></i>
-        </div>
-        <h3 class="toolkit-card-title">Quick Trips</h3>
-        <p class="toolkit-card-text">
-          Plan a day trip full of local flavor and get back in time with these
-          same-day options. Providing the best tips &amp; tricks for you.
-        </p>
-        <button class="toolkit-plus-btn">
-          <span>+</span>
-        </button>
-      </article>
+      <a href="#" class="toolkit-card-link">
+        <article class="toolkit-card">
+          <div class="toolkit-icon">
+            <i class="fa-solid fa-route"></i>
+          </div>
+          <h3 class="toolkit-card-title">Quick Trips</h3>
+          <p class="toolkit-card-text">
+            Plan a day trip full of local flavor and get back in time with these
+            same-day options. Providing the best tips &amp; tricks for you.
+          </p>
+          <button class="toolkit-plus-btn" aria-label="Learn more about Quick Trips">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </article>
+      </a>
 
       <!-- Card 6 (accent button) -->
-      <article class="toolkit-card">
-        <div class="toolkit-icon">
-          <i class="fa-regular fa-circle-dollar-to-slot"></i>
-        </div>
-        <h3 class="toolkit-card-title">Budget Friendly</h3>
-        <p class="toolkit-card-text">
-          Deals and tips on ways to save without sacrificing the fun on your
-          next trip. Providing the best tips &amp; tricks for you.
-        </p>
-        <button class="toolkit-plus-btn toolkit-plus-btn--accent">
-          <span>+</span>
-        </button>
-      </article>
+      <a href="#" class="toolkit-card-link">
+        <article class="toolkit-card">
+          <div class="toolkit-icon">
+            <i class="fa-regular fa-circle-dollar-to-slot"></i>
+          </div>
+          <h3 class="toolkit-card-title">Budget Friendly</h3>
+          <p class="toolkit-card-text">
+            Deals and tips on ways to save without sacrificing the fun on your
+            next trip. Providing the best tips &amp; tricks for you.
+          </p>
+          <button class="toolkit-plus-btn toolkit-plus-btn--accent" aria-label="Learn more about Budget Friendly">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </article>
+      </a>
 
     </div>
 
@@ -315,55 +336,61 @@
     <div class="highlights-grid">
 
       <!-- Card 1 -->
-      <article class="highlights-card">
-        <div class="highlights-image-wrapper">
-          <img src="../assets/images/search result/trip-1.jpg" alt="Coast view">
-          <span class="highlights-price-badge">$200</span>
-        </div>
-        <div class="highlights-card-body">
-          <span class="highlights-label">Must See</span>
-          <h3 class="highlights-card-title">The Rocks</h3>
-          <div class="highlights-rating">
-            <i class="fa-solid fa-star"></i>
-            <span class="highlights-score">4.5</span>
-            <span class="highlights-reviews">(5.3K Reviews)</span>
+      <a href="#" class="highlights-card-link">
+        <article class="highlights-card">
+          <div class="highlights-image-wrapper">
+            <img src="../assets/images/search result/trip-1.jpg" alt="Coast view">
+            <span class="highlights-price-badge">$200</span>
           </div>
-        </div>
-      </article>
+          <div class="highlights-card-body">
+            <span class="highlights-label">Must See</span>
+            <h3 class="highlights-card-title">The Rocks</h3>
+            <div class="highlights-rating">
+              <i class="fa-solid fa-star"></i>
+              <span class="highlights-score">4.5</span>
+              <span class="highlights-reviews">(5.3K Reviews)</span>
+            </div>
+          </div>
+        </article>
+      </a>
 
       <!-- Card 2 -->
-      <article class="highlights-card">
-        <div class="highlights-image-wrapper">
-          <img src="../assets/images/search result/trip-2.jpg" alt="Beach and mountains">
-          <span class="highlights-price-badge">$200</span>
-        </div>
-        <div class="highlights-card-body">
-          <span class="highlights-label">Must See</span>
-          <h3 class="highlights-card-title">The Rocks</h3>
-          <div class="highlights-rating">
-            <i class="fa-solid fa-star"></i>
-            <span class="highlights-score">4.5</span>
-            <span class="highlights-reviews">(5.3K Reviews)</span>
+      <a href="#" class="highlights-card-link">
+        <article class="highlights-card">
+          <div class="highlights-image-wrapper">
+            <img src="../assets/images/search result/trip-2.jpg" alt="Beach and mountains">
+            <span class="highlights-price-badge">$200</span>
           </div>
-        </div>
-      </article>
+          <div class="highlights-card-body">
+            <span class="highlights-label">Must See</span>
+            <h3 class="highlights-card-title">The Rocks</h3>
+            <div class="highlights-rating">
+              <i class="fa-solid fa-star"></i>
+              <span class="highlights-score">4.5</span>
+              <span class="highlights-reviews">(5.3K Reviews)</span>
+            </div>
+          </div>
+        </article>
+      </a>
 
       <!-- Card 3 -->
-      <article class="highlights-card">
-        <div class="highlights-image-wrapper">
-          <img src="../assets/images/search result/trip-3.jpg" alt="Sydney Opera">
-          <span class="highlights-price-badge">$200</span>
-        </div>
-        <div class="highlights-card-body">
-          <span class="highlights-label">Must See</span>
-          <h3 class="highlights-card-title">The Rocks</h3>
-          <div class="highlights-rating">
-            <i class="fa-solid fa-star"></i>
-            <span class="highlights-score">4.5</span>
-            <span class="highlights-reviews">(5.3K Reviews)</span>
+      <a href="#" class="highlights-card-link">
+        <article class="highlights-card">
+          <div class="highlights-image-wrapper">
+            <img src="../assets/images/search result/trip-3.jpg" alt="Sydney Opera">
+            <span class="highlights-price-badge">$200</span>
           </div>
-        </div>
-      </article>
+          <div class="highlights-card-body">
+            <span class="highlights-label">Must See</span>
+            <h3 class="highlights-card-title">The Rocks</h3>
+            <div class="highlights-rating">
+              <i class="fa-solid fa-star"></i>
+              <span class="highlights-score">4.5</span>
+              <span class="highlights-reviews">(5.3K Reviews)</span>
+            </div>
+          </div>
+        </article>
+      </a>
 
     </div>
 
@@ -494,6 +521,35 @@
         backToTop.addEventListener('click', function (e) {
           e.preventDefault();
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Featured video slider functionality
+      const videoDots = document.querySelectorAll('.featured-video-dot');
+      const videoCard = document.querySelector('.featured-video-card');
+      const videoPlayBtn = document.querySelector('.featured-video-play');
+      
+      if (videoDots.length > 0) {
+        videoDots.forEach((dot, index) => {
+          dot.addEventListener('click', function () {
+            // Remove active class from all dots
+            videoDots.forEach(d => d.classList.remove('featured-video-dot--active'));
+            // Add active class to clicked dot
+            this.classList.add('featured-video-dot--active');
+            
+            // You can add video switching logic here
+            console.log('Video ' + (index + 1) + ' selected');
+          });
+        });
+      }
+
+      // Video play button functionality
+      if (videoPlayBtn) {
+        videoPlayBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          // You can add modal or video player logic here
+          console.log('Play video clicked');
+          alert('Video player would open here');
         });
       }
 

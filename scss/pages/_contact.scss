@@ -1,7 +1,7 @@
-// Contact Page Styles
+// Contact Hero Section
 .contact-hero {
   padding: 60px 0;
-  background: url('../images/contact/contact.png');
+  background: url("../images/contact/contact.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
   }
 
   .contact-title {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
     color: #fff;
@@ -29,7 +29,7 @@
   }
 
   .contact-subtitle {
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
     font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 0;
@@ -54,7 +54,7 @@
     display: flex;
     justify-content: center;
     gap: 80px;
-    
+
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 40px;
@@ -77,7 +77,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         &.phone {
           background: #ffc107;
         }
@@ -89,11 +89,11 @@
         svg {
           width: 20px;
           height: 20px;
-          
+
           path {
             fill: white;
           }
-          
+
           polyline {
             stroke: white;
             stroke-width: 2;
@@ -107,14 +107,14 @@
         text-align: left;
 
         .contact-label {
-          font-family: 'Manrope', sans-serif;
+          font-family: "Manrope", sans-serif;
           font-size: 0.875rem;
           color: #666;
           margin-bottom: 4px;
         }
 
         .contact-value {
-          font-family: 'Manrope', sans-serif;
+          font-family: "Manrope", sans-serif;
           font-size: 1rem;
           font-weight: 600;
           color: #1a1a1a;
@@ -122,9 +122,9 @@
       }
     }
   }
-
 }
 
+// Contact Form Section
 .contact-form-section {
   padding: 60px 0 80px;
   background: #fff;
@@ -137,7 +137,7 @@
 
   .contact-form {
     text-align: center;
-    
+
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -160,7 +160,7 @@
     }
 
     .form-input {
-      font-family: 'Manrope', sans-serif;
+      font-family: "Manrope", sans-serif;
       padding: 16px 20px;
       border: 2px solid #e5e7eb;
       border-radius: 12px;
@@ -181,7 +181,7 @@
       &.form-textarea {
         resize: vertical;
         min-height: 120px;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
       }
 
       &.form-select {
@@ -204,7 +204,7 @@
       border: none;
       padding: 10px 20px;
       border-radius: 25px;
-      font-family: 'Manrope', sans-serif;
+      font-family: "Manrope", sans-serif;
       font-size: 0.875rem;
       font-weight: 600;
       cursor: pointer;
@@ -226,7 +226,7 @@
   }
 }
 
-// Icon styles (using CSS content for simple icons)
+// Contact Icon Pseudo Elements
 .contact-icon {
   &.phone::before {
     content: "📞";

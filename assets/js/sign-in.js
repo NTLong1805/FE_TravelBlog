@@ -73,6 +73,6 @@ async function verfiySignIn() {
     localStorage.setItem("token", result.accessToken);
     localStorage.setItem("refreshToken", result.refreshToken);
 
-    window.location.href = "../index.html";
+    window.history.back();
   }
 }

@@ -94,3 +94,30 @@
         z-index: 0;
     }
 }
+
+.navtab {
+  display: flex;
+  flex-wrap: wrap;   // cho xuống dòng nếu nhiều tab
+  gap: 12px;         // khoảng cách giữa các tab
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  // các input radio ẩn đi, vì bạn dùng input[type=radio] cho tab
+  input.navtab-input {
+    display: none;
+  }
+
+  // label đóng vai trò tab
+  label.navtab-label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    border-radius: 24px;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}

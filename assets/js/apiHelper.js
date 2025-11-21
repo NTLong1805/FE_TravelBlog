@@ -22,7 +22,7 @@ async function callApi({
         error: (xhr) => reject(xhr),
       });
     });
-  } catch (err) {
+  } catch (error) {
     if (error.status === 401) {
       const refreshed = await refreshAccessToken();
       if (!refreshed) {
@@ -30,16 +30,19 @@ async function callApi({
         return;
       }
 
-      // Gọi lại API ban đầu sau khi đã có token mới
       accessToken = localStorage.getItem("accessToken");
-      return $.ajax({
-        url: BASE_URL + url,
-        type: method,
-        data: data ? JSON.stringify(data) : null,
-        contentType: "application/json",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+      return new Promise((resolve, reject) => {
+        $.ajax({
+          url: BASE_URL + url,
+          type: method,
+          data: JSON.stringify(data),
+          contentType: "application/json",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          success: (res) => resolve(res),
+          error: (xhr) => reject(xhr),
+        });
       });
     }
 
@@ -57,9 +60,9 @@ async function refreshAccessToken() {
       url: BASE_URL + "api/v1/token/refresh",
       type: "POST",
       contentType: "application/json",
-      data: JSON.stringify({ 
+      data: JSON.stringify({
         token: token,
-        refreshToken: refreshToken
+        refreshToken: refreshToken,
       }),
     });
 

@@ -25,8 +25,6 @@
     <link rel="stylesheet" href="../assets/font/Manrope/stylesheet.css" />
     <!-- Main CSS -->
     <link rel="stylesheet" href="../assets/css/main.css" />
-    <!-- JS -->
-    <script src="../assets/js/scripts.js"></script>
     <!-- CDN Font Awesome -->
     <link
       rel="stylesheet"
@@ -39,9 +37,7 @@
 
   <body>
     <header id="header" class="header"></header>
-    <script>
-      load("#header", "../template/header.html");
-    </script>
+
     <section class="hero">
       <div class="blog-hero">
         <h1 class="blog__heading">Travel Blog</h1>
@@ -70,32 +66,8 @@
             </div>
           </div>
         </form>
-        <nav class="navtab">
-          <!-- All Articles -->
-          <input
-            type="radio"
-            id="allarticles"
-            name="tab"
-            class="navtab-input"
-            checked
-          />
-          <label for="allarticles" class="navtab-label">All Articles</label>
-          <!-- Food & Drink -->
-          <input type="radio" id="fooddrink" name="tab" class="navtab-input" />
-          <label for="fooddrink" class="navtab-label">Food & Drink</label>
-          <input
-            type="radio"
-            id="inspiration"
-            name="tab"
-            class="navtab-input"
-          />
-          <label for="inspiration" class="navtab-label">Inspiration</label>
-          <!-- Local Guide -->
-          <input type="radio" id="localguide" name="tab" class="navtab-input" />
-          <label for="localguide" class="navtab-label">Local Guides</label>
-          <!-- Tips -->
-          <input type="radio" id="traveltips" name="tab" class="navtab-input" />
-          <label for="traveltips" class="navtab-label">Travel Tips</label>
+        <nav id="navCategory" class="navtab">
+          
         </nav>
       </div>
       <img
@@ -202,105 +174,19 @@
       </div>
       <div class="container" id="hostestBlogs">
         <h2 class="blog__heading--small">Hostest</h2>
-        <div class="row row-cols-lg-3 gy-4 gx-4">
-          <div class="col">
-            <div class="blog-card">
-              <a href="./blog-post.html" class="blog-card__img-wrap">
-                <img
-                  src="../assets/images/destination/Bali.jpg"
-                  alt=""
-                  class="blog-card__img"
-                />
-              </a>
-              <a href="#!" class="blog-card__heading">
-                8 Amazing Places to Celebrate New Year 2023
-              </a>
-              <a href="#!" class="blog-card__more">By David Warner</a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="blog-card">
-              <a href="./blog-post.html" class="blog-card__img-wrap">
-                <img
-                  src="../assets/images/destination/Bali.jpg"
-                  alt=""
-                  class="blog-card__img"
-                />
-              </a>
-              <a href="#!" class="blog-card__heading">
-                8 Amazing Places to Celebrate New Year 2023
-              </a>
-
-              <a href="#!" class="blog-card__more">By David Warner</a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="blog-card">
-              <a href="./blog-post.html" class="blog-card__img-wrap">
-                <img
-                  src="../assets/images/destination/Bali.jpg"
-                  alt=""
-                  class="blog-card__img"
-                />
-              </a>
-              <a href="#!" class="blog-card__heading">
-                8 Amazing Places to Celebrate New Year 2023
-              </a>
-              <a href="#!" class="blog-card__more">By David Warner</a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="blog-card">
-              <a href="./blog-post.html" class="blog-card__img-wrap">
-                <img
-                  src="../assets/images/destination/Bali.jpg"
-                  alt=""
-                  class="blog-card__img"
-                />
-              </a>
-              <a href="#!" class="blog-card__heading">
-                8 Amazing Places to Celebrate New Year 2023
-              </a>
-              <a href="#!" class="blog-card__more">By David Warner</a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="blog-card">
-              <a href="./blog-post.html" class="blog-card__img-wrap">
-                <img
-                  src="../assets/images/destination/Bali.jpg"
-                  alt=""
-                  class="blog-card__img"
-                />
-              </a>
-              <a href="#!" class="blog-card__heading">
-                8 Amazing Places to Celebrate New Year 2023
-              </a>
-              <a href="#!" class="blog-card__more">By David Warner</a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="blog-card">
-              <a href="./blog-post.html" class="blog-card__img-wrap">
-                <img
-                  src="../assets/images/destination/Bali.jpg"
-                  alt=""
-                  class="blog-card__img"
-                />
-              </a>
-              <a href="#!" class="blog-card__heading">
-                8 Amazing Places to Celebrate New Year 2023
-              </a>
-              <a href="#!" class="blog-card__more">By David Warner</a>
-            </div>
-          </div>
+        <div id="hostestBlog" class="row row-cols-lg-3 gy-4 gx-4">
+         
         </div>
         <a href="#!" class="btn btn-grad btn-more">Read More</a>
       </div>
     </section>
     <footer id="footer" class="footer"></footer>
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
     <script>
+      load("#header", "../template/header.html");
       load("#footer", "../template/footer.html");
     </script>
+    <script type="module" src="../assets/js/blog.js"></script>
   </body>
 </html>

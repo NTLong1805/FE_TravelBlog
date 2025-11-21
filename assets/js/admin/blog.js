@@ -49,6 +49,10 @@ $(document).on("click", ".blog-status-tabs .nav-link", function (e) {
 $(document).on("click", ".btn-approve", async function () {
   const id = $(this).data("id");
 
+  if (confirm("Are you sure you want to approve this blog?") === false) {
+    return;
+  }
+
   try {
     const result = await callApi({
       url: "api/v1/admin/blog-request/" + id + "/approval",
@@ -73,6 +77,11 @@ $(document).on("click", ".btn-approve", async function () {
 
 $(document).on("click", ".btn-reject", async function () {
   const id = $(this).data("id");
+
+  if (confirm("Are you sure you want to reject this blog?") === false) {
+    return;
+  }
+
   try {
     const result = await callApi({
       url: "api/v1/admin/blog-request/" + id + "/reject",

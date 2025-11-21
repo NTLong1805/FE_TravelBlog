@@ -18,9 +18,14 @@ function isTokenExpired(token) {
 loadTemplate("header", "../../template/admin/header.html");
 loadTemplate("sidebar", "../../template/admin/sidebar.html");
 
-$("#btnLogout").on("click", "#btnLogout", function () {
-  localStorage.removeItem("admin_token");
-  window.location.href = "page/admin/authentication-login.html";
+document.addEventListener("DOMContentLoaded", function () {
+  const btnLogout = document.getElementById("btnLogout");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", function () {
+      localStorage.removeItem("admin_token");
+      window.location.href = "page/admin/authentication-login.html";
+    });
+  }
 });
 
 function loadTemplate(selector, path) {

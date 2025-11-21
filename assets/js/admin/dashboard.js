@@ -1,19 +1,67 @@
+import { callApi } from "../apiHelper.js";
+
+const token = localStorage.getItem("admin_token");
+const categoriesApi = await callApi({
+  url: "api/v1/admin/categories/search",
+  method: "POST",
+  data: JSON.stringify({
+    ignorePagination: true,
+  }),
+  token: token,
+});
+const commentsApi = await callApi({
+  url: "api/v1/admin/comment/search",
+  method: "POST",
+  data: JSON.stringify({
+    ignorePagination: true,
+  }),
+  token: token,
+});
+
+const categories = categoriesApi.result.data.map((item) => item.name);
+const categoriesData = categoriesApi.result.data.map(
+  (item) => item.numberOfPosts
+);
+const maxValue = Math.max(...categoriesData);
+const roundedMax = Math.ceil(maxValue / 10) * 10;
+
+const comments = commentsApi.result.data;
+let content = "";
+
+comments.forEach((comment) => {
+  content += `<div class="d-flex flex-row comment-row border-bottom p-3 gap-3">
+                <div>
+                  <span><img src="assets/images/profile/user-3.jpg" class="rounded-circle" alt="user"
+                      width="50" /></span>
+                </div>
+                <div class="comment-text w-100">
+                  <h6 class="fw-medium">${comment.user.fullName} > ${comment.blog.title}</h6>
+                  <p class="mb-1 fs-2 text-muted">
+                    ${comment.content}
+                  </p>
+                  <div class="comment-footer mt-2">
+                    <span class="
+                        text-muted
+                        ms-auto
+                        fw-normal
+                        fs-2
+                        d-block
+                        mt-2
+                        text-end
+                      ">${new Date(comment.createdOn).toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>`;
+});
+
+$('#comments-content').html(content);
+
 $(function () {
-
-
-  // -----------------------------------------------------------------------
-  // sales overview
-  // -----------------------------------------------------------------------
-
   var options_sales_overview = {
     series: [
       {
-        name: "Ample Admin",
-        data: [355, 390, 300, 350, 390, 180],
-      },
-      {
-        name: "Pixel Admin",
-        data: [280, 250, 325, 215, 250, 310],
+        name: "Number of Posts",
+        data: categoriesData,
       },
     ],
     chart: {
@@ -51,9 +99,9 @@ $(function () {
     },
     yaxis: {
       show: true,
-      min: 100,
-      max: 400,
-      tickAmount: 3,
+      min: 0,
+      max: roundedMax,
+      tickAmount: 2,
     },
     stroke: {
       show: true,
@@ -63,7 +111,7 @@ $(function () {
     },
     xaxis: {
       type: "category",
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      categories: categories,
       axisBorder: {
         show: false,
       },
@@ -84,6 +132,4 @@ $(function () {
     options_sales_overview
   );
   chart_column_basic.render();
-
-
-})
+});

@@ -8,4 +8,4 @@ function getCurrentUserId() {
     return payload.userId;
 }
 
-export { getCurrentUserId };
+export { getCurrentUserId, parseJwt };

@@ -1,10 +1,11 @@
 import { callApi } from "../apiHelper.js";
+import { parseJwt } from "../common.js";
 
 const token = localStorage.getItem("admin_token");
+const currentUserId = parseJwt(token).userId;
 
 var apiBlogSearch = "api/v1/admin/blogs/search";
 var apiUserSearch = "api/v1/admin/user/search";
-
 let blogs = [];
 let users = [];
 let userMap = {};
@@ -198,19 +199,71 @@ function renderTable(page) {
       `;
     }
 
+    let actionButtons = "";
+    if (blog.authorId == currentUserId && blog.status != 1) {
+        actionButtons = `
+            <button class="btn-edit btn btn-sm btn-outline-primary" data-id="${blog.id}">
+                <i class="ti ti-edit"></i>
+            </button>
+            <button class="btn-delete btn btn-sm btn-outline-danger ms-1" data-id="${blog.id}">
+                <i class="ti ti-trash"></i>
+            </button>
+        `;
+    }
+
     rows += `
-      <tr>
+      <tr class="blog-row" data-id="${blog.id}">
         <td>${start + idx + 1}</td>
         <td>${escapeHtml(blog.title || "")}</td>
         <td>${escapeHtml(blog.category?.name || "")}</td>
         <td>${escapeHtml(blog.destination?.name || "")}</td>
         <td>${escapeHtml(author)}</td>
         <td>${statusCell}</td>
+        <td>${actionButtons}</td>
       </tr>`;
   });
 
   $tbody.html(rows);
 }
+
+$(document).on("dblclick", ".blog-row", function () {
+    const id = $(this).data("id");
+    if (!id) return;
+
+    window.location.href = `page/admin/blog-editor.html?id=${id}`;
+});
+
+$(document).on("click", ".btn-edit, .btn-delete", function (e) {
+    e.stopPropagation();
+});
+
+$(document).on("click", ".btn-edit", function () {
+    const id = $(this).data("id");
+    window.location.href = `page/admin/blog-editor.html?id=${id}`;
+});
+
+$(document).on("click", ".btn-delete", async function () {
+    const id = $(this).data("id");
+
+    if (!confirm("Are you sure you want to delete this blog?")) return;
+
+    try {
+        await callApi({
+            url: `api/v1/admin/blogs/${id}`,
+            method: "DELETE",
+            token: token
+        });
+
+        blogs = blogs.filter(b => b.id != id);
+        updateTable();
+
+        alert("Blog deleted successfully!");
+
+    } catch (err) {
+        console.error(err);
+        alert("Failed to delete blog!");
+    }
+});
 
 function renderPagination() {
   const $ul = $("#table tfoot .pagination");

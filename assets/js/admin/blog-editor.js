@@ -1,5 +1,5 @@
 import { callApi, uploadFileApi } from "../apiHelper.js";
-import { getCurrentUserId } from "../common.js";
+import { parseJwt } from "../common.js";
 
 var editor;
 var apiCategory = "api/v1/admin/categories/search";
@@ -7,11 +7,19 @@ var blogApi = "api/v1/admin/blogs";
 var countryApi = "api/v1/admin/countries/search";
 var destinationApi = "api/v1/admin/countries/{id}/destinations";
 var thumbnailId = "";
+const token = localStorage.getItem("admin_token");
+const currentUserId = parseJwt(token).userId;
+const params = new URLSearchParams(window.location.search);
+const blogId = params.get("id");
 
 $(document).ready(async function () {
   initEditor();
   await loadCategories();
   await loadCountries();
+
+  if (blogId) {
+    await loadBlog(blogId);
+  }
 
   $(document).on("change", "#countrySelect", async function () {
     const countryId = $(this).val();
@@ -32,6 +40,58 @@ $(document).on("click", ".btnBack.btn.btn-lg", function () {
 
 $(document).on("click", ".btnSave.btn.btn-primary", saveBlog);
 
+async function loadBlog(id) {
+  const res = await callApi({
+    url: `${blogApi}/${id}`,
+    method: "GET",
+    token: token
+  });
+
+  const blog = res.result;
+
+  // check quyền sở hữu blog
+  if (blog.authorId != currentUserId) {
+    disableEditingUI();
+    $(".lb-upload").hide();
+  }
+
+  // set UI values
+  $("#title-input").val(blog.title);
+  $("#categorySelect").val(blog.categoryId).trigger("change");
+  $("#preview-img").attr("src", blog.thumbnail?.fullPathUrl || "").show();
+  thumbnailId = blog.thumbnailId;
+
+  // load Destination
+  $("#countrySelect").val(blog.destination.countryId);
+  await loadDestinationsByCountry(blog.destination.countryId);
+  $("#destinationSelect").val(blog.destinationId);
+
+  // load Editor.js content
+  editor.render(JSON.parse(blog.content));
+}
+
+function disableEditingUI() {
+  $("#title-input").prop("disabled", true);
+  $("#categorySelect").prop("disabled", true);
+  $("#countrySelect").prop("disabled", true);
+  $("#destinationSelect").prop("disabled", true);
+  $("#file-input").prop("disabled", true);
+  $(".btnSave").hide();
+
+  // Editor.js không có chế độ readOnly mặc định
+  // nhưng bạn có thể chặn toolbar + input
+  const style = document.createElement("style");
+  style.innerHTML = `
+    .ce-toolbar, .ce-settings {
+      display: none !important;
+    }
+    .ce-block__content {
+      pointer-events: none;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function initEditor() {
   editor = new EditorJS({
     holder: "editorjs",
@@ -42,7 +102,6 @@ function initEditor() {
         config: {
           uploader: {
             async uploadByFile(file) {
-              const token = localStorage.getItem("admin_token");
               const response = await uploadFileApi(file, token);
               return {
                 success: 1,
@@ -70,7 +129,6 @@ function initEditor() {
 }
 
 async function uploadFile(file) {
-  const token = localStorage.getItem("admin_token");
   try {
     const response = await uploadFileApi(file, token);
     const result = response.result;
@@ -82,7 +140,6 @@ async function uploadFile(file) {
 }
 
 async function loadCategories() {
-  const token = localStorage.getItem("admin_token");
   const res = await callApi({
     url: apiCategory,
     method: "POST",
@@ -97,35 +154,35 @@ async function loadCategories() {
   });
 }
 
-function saveBlog() {
-  editor
-    .save()
-    .then(async (outputData) => {
-      const token = localStorage.getItem("admin_token");
+async function saveBlog() {
+  editor.save().then(async (outputData) => {
+    const payload = {
+      title: $("#title-input").val(),
+      content: JSON.stringify(outputData),
+      thumbnailId: thumbnailId,
+      authorId: currentUserId,
+      categoryId: $("#categorySelect").val(),
+      destinationId: $("#destinationSelect").val(),
+    };
 
-      const res = await callApi({
-        url: blogApi,
-        method: "POST",
-        data: JSON.stringify({
-          title: $("#title-input").val(),
-          content: JSON.stringify(outputData),
-          thumbnailId: thumbnailId,
-          authorId: getCurrentUserId(),
-          categoryId: $("#categorySelect").val(),
-          destinationId: 1,
-        }),
-        token: token,
-      });
+    const url = blogId ? `${blogApi}/${blogId}` : blogApi;
+    const method = blogId ? "PUT" : "POST";
 
-      window.location.href = "page/admin/blog.html";
-    })
-    .catch((error) => {
-      console.log("Saving failed: ", error);
+    await callApi({
+      url: url,
+      method: method,
+      data: JSON.stringify(payload),
+      token: token,
     });
+
+    window.location.href = "page/admin/blog.html";
+  })
+  .catch((error) => {
+    console.log("Saving failed: ", error);
+  });
 }
 
 async function loadCountries() {
-  const token = localStorage.getItem("admin_token");
   const res = await callApi({
     url: countryApi,
     method: "POST",
@@ -141,7 +198,6 @@ async function loadCountries() {
 }
 
 async function loadDestinationsByCountry(id) {
-  const token = localStorage.getItem("admin_token");
   const url = destinationApi.replace("{id}", id);
   const res = await callApi({
     url: url,
@@ -151,7 +207,7 @@ async function loadDestinationsByCountry(id) {
 
   const select = $("#destinationSelect");
   select.empty().append('<option value="">-- Select Destination --</option>');
-  res.result.result.forEach((destination) => {
+  res.result.forEach((destination) => {
     select.append(`<option value="${destination.id}">${destination.name}</option>`);
   });
 }

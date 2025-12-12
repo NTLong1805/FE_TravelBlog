@@ -41,34 +41,38 @@ async function initiateSignUp() {
   const confirmPassword =
     signupForm.querySelectorAll(".signin__input")[4].value;
 
-  const response = await callApi({
-    url: initiateSignupApi,
-    method: "POST",
-    data: JSON.stringify({
-      firstName: firstName,
-      lastName: lastName,
-      contact: email,
-      password: password,
-      confirmPassword: confirmPassword,
-    }),
-  });
+  try {
+    const response = await callApi({
+      url: initiateSignupApi,
+      method: "POST",
+      data: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        contact: email,
+        password: password,
+        confirmPassword: confirmPassword,
+      }),
+    });
 
-  const result = response.result;
+    const result = response.result;
 
-  if (result.IsContactExists) {
-    alert("Email's use is exist! Please send another email");
-    return;
+    if (result.IsContactExists) {
+      alert("Email's use is exist! Please send another email");
+      return;
+    }
+
+    if (result.verificationId == null) {
+      alert("Failed to send code! Please try again!");
+      return;
+    }
+
+    verificationId = result.verificationId;
+    contact = result.contact;
+    signUp.classList.add("hidden");
+    otpCard.classList.remove("hidden");
+  } catch (error) {
+    alert("Sign up failed! Please check your information again.");
   }
-
-  if (result.verificationId == null) {
-    alert("Failed to send code! Please try again!");
-    return;
-  }
-
-  verificationId = result.verificationId;
-  contact = result.contact;
-  signUp.classList.add("hidden");
-  otpCard.classList.remove("hidden");
 }
 
 document.getElementById("btnVerifyOtp").addEventListener("click", verifySignUp);
@@ -81,22 +85,26 @@ async function verifySignUp() {
     otp += input.value;
   });
 
-  const response = await callApi({
-    url: verifySignupApi,
-    method: "POST",
-    data: JSON.stringify({
-      contact: contact,
-      verificationCode: otp,
-    }),
-  });
+  try {
+    const response = await callApi({
+      url: verifySignupApi,
+      method: "POST",
+      data: JSON.stringify({
+        contact: contact,
+        verificationCode: otp,
+      }),
+    });
 
-  const result = response.result;
+    const result = response.result;
 
-  if (result.user != null) {
-    localStorage.setItem("token", result.accessToken);
-    localStorage.setItem("refreshToken", result.refreshToken);
+    if (result.user != null) {
+      localStorage.setItem("token", result.accessToken);
+      localStorage.setItem("refreshToken", result.refreshToken);
 
-    window.location.href = "../index.html";
+      window.location.href = "../index.html";
+    }
+  } catch (error) {
+    alert("Verify sign up failed! Please check your OTP again.");
   }
 }
 

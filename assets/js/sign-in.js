@@ -11,20 +11,22 @@ signinForm.addEventListener("submit", async (e) => {
   contact = signinForm.querySelectorAll(".signin__input")[0].value;
   const password = signinForm.querySelectorAll(".signin__input")[1].value;
 
-  const res = await callApi({
-    url: "api/v1/auth/sign-in/initiate",
-    method: "POST",
-    data: JSON.stringify({
-      contact: contact,
-      password: password,
-    }),
-  });
+  try {
+    const res = await callApi({
+      url: "api/v1/auth/sign-in/initiate",
+      method: "POST",
+      data: JSON.stringify({
+        contact: contact,
+        password: password,
+      }),
+    });
 
-  if (res.result != null) {
-    signinCard.classList.add("hidden");
-    otpCard.classList.remove("hidden");
-  } else {
-    alert("Something went wrong!");
+    if (res.result != null) {
+      signinCard.classList.add("hidden");
+      otpCard.classList.remove("hidden");
+    }
+  } catch (error) {
+    alert("Sign in failed! Please check your email and password again.");
   }
 });
 
@@ -44,9 +46,7 @@ otpItems.forEach((input, index) => {
   });
 });
 
-document
-  .getElementById("btnVerifyOtp")
-  .addEventListener("click", verfiySignIn);
+document.getElementById("btnVerifyOtp").addEventListener("click", verfiySignIn);
 
 async function verfiySignIn() {
   let otp = "";
@@ -58,21 +58,25 @@ async function verfiySignIn() {
 
   console.log(otp);
 
-  const response = await callApi({
-    url: "api/v1/auth/sign-in/verify-otp",
-    method: "POST",
-    data: JSON.stringify({
-      contact: contact,
-      verificationCode: otp,
-    }),
-  });
+  try {
+    const response = await callApi({
+      url: "api/v1/auth/sign-in/verify-otp",
+      method: "POST",
+      data: JSON.stringify({
+        contact: contact,
+        verificationCode: otp,
+      }),
+    });
 
-  const result = response.result;
+    const result = response.result;
 
-  if (result.user != null) {
-    localStorage.setItem("token", result.accessToken);
-    localStorage.setItem("refreshToken", result.refreshToken);
+    if (result.user != null) {
+      localStorage.setItem("token", result.accessToken);
+      localStorage.setItem("refreshToken", result.refreshToken);
 
-    window.history.back();
+      window.history.back();
+    }
+  } catch (error) {
+    alert("Verify OTP failed! Please check your OTP again.");
   }
 }
